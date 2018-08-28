@@ -1,0 +1,14 @@
+/Users/gerardojaramillo/code/IrsMonkeyApi/bin/Debug/netcoreapp2.1/IrsMonkeyApi.deps.json
+/Users/gerardojaramillo/code/IrsMonkeyApi/bin/Debug/netcoreapp2.1/IrsMonkeyApi.runtimeconfig.json
+/Users/gerardojaramillo/code/IrsMonkeyApi/bin/Debug/netcoreapp2.1/IrsMonkeyApi.runtimeconfig.dev.json
+/Users/gerardojaramillo/code/IrsMonkeyApi/bin/Debug/netcoreapp2.1/IrsMonkeyApi.dll
+/Users/gerardojaramillo/code/IrsMonkeyApi/bin/Debug/netcoreapp2.1/IrsMonkeyApi.pdb
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csprojAssemblyReference.cache
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csproj.CoreCompileInputs.cache
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.RazorAssemblyInfo.cache
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.RazorAssemblyInfo.cs
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.AssemblyInfoInputs.cache
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.AssemblyInfo.cs
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.RazorTargetAssemblyInfo.cache
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.dll
+/Users/gerardojaramillo/code/IrsMonkeyApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.pdb

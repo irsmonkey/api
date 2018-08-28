@@ -1,0 +1,16 @@
+GET https://localhost:5001/api/values
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-08-28T050723.200.json
+
+###
+
+GET https://localhost:5001/api/values
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-08-28T050713.200.json
+
+###
+
