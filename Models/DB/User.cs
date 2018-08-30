@@ -21,10 +21,11 @@ namespace IrsMonkeyApi.Models.DB
         public DateTime? UpdatedAt { get; set; }
         public int? CreatedBy { get; set; }
         public int? UpdatedBy { get; set; }
-        public int? MemberId { get; set; }
         public bool? IsFirstLogin { get; set; }
         public bool? IsDeleted { get; set; }
+        public Guid? MemberId { get; set; }
 
+        public Member Member { get; set; }
         public ICollection<LogUserAction> LogUserAction { get; set; }
         public ICollection<Ticket> TicketAssignedByNavigation { get; set; }
         public ICollection<Ticket> TicketAssignedToNavigation { get; set; }

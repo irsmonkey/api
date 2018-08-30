@@ -15,6 +15,7 @@ namespace IrsMonkeyApi.Models.DB
             PaymentLog = new HashSet<PaymentLog>();
             Ticket = new HashSet<Ticket>();
             TicketLog = new HashSet<TicketLog>();
+            User = new HashSet<User>();
         }
 
         public Guid MemberId { get; set; }
@@ -56,5 +57,6 @@ namespace IrsMonkeyApi.Models.DB
         public ICollection<PaymentLog> PaymentLog { get; set; }
         public ICollection<Ticket> Ticket { get; set; }
         public ICollection<TicketLog> TicketLog { get; set; }
+        public ICollection<User> User { get; set; }
     }
 }

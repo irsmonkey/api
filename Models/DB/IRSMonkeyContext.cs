@@ -67,6 +67,15 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<Wizard> Wizard { get; set; }
         public virtual DbSet<WizardStep> WizardStep { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=kras.database.windows.net;Database=IRSMonkey;User Id=IRSMONKEY;Password=IronMonkey2$;");
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Alert>(entity =>
@@ -1260,6 +1269,11 @@ namespace IrsMonkeyApi.Models.DB
                     .IsUnicode(false);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Member)
+                    .WithMany(p => p.User)
+                    .HasForeignKey(d => d.MemberId)
+                    .HasConstraintName("User_Member_MemberID_fk");
             });
 
             modelBuilder.Entity<UserRole>(entity =>

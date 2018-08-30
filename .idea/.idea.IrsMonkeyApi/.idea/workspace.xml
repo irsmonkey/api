@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c30e2f8-6f3b-4b03-935b-0ab0ec3aa10e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IrsMonkeyApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IrsMonkeyApi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DB/IRSMonkeyContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DB/IRSMonkeyContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,41 +24,42 @@
     <session id="840708611">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.57" value="1" />
           <entry key="project.open.time.62" value="1" />
           <entry key="project.open.time.76" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="15" />
+          <entry key="cs" value="16" />
           <entry key="csproj" value="1" />
           <entry key="http" value="1" />
-          <entry key="json" value="3" />
+          <entry key="json" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="15" />
+          <entry key="C#" value="16" />
           <entry key="Csproj" value="1" />
-          <entry key="JSON" value="3" />
+          <entry key="JSON" value="5" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="1814" />
-          <entry key="json" value="40" />
-          <entry key="txt" value="9" />
+          <entry key="cs" value="2266" />
+          <entry key="json" value="45" />
+          <entry key="txt" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="1814" />
-          <entry key="JSON" value="40" />
-          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="C#" value="2266" />
+          <entry key="JSON" value="45" />
+          <entry key="PLAIN_TEXT" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.kubernetes.usages" />
@@ -69,13 +68,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Startup.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+            <state relative-caret-position="570">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
               <folding>
-                <marker date="1535657751000" expanded="true" signature="6:496" ph="..." />
+                <marker date="1535657751000" expanded="false" signature="6:496" ph="..." />
                 <marker date="1535657751000" expanded="true" signature="520:1557" ph="{...}" />
                 <marker date="1535657751000" expanded="true" signature="547:1555" ph="{...}" />
                 <marker date="1535657751000" expanded="true" signature="606:669" ph="{...}" />
@@ -91,26 +90,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/UserController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="27" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="27" />
+            <state relative-caret-position="440">
+              <caret line="55" column="15" lean-forward="true" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
               <folding>
-                <marker date="1535657860000" expanded="true" signature="6:140" ph="..." />
-                <marker date="1535657860000" expanded="true" signature="176:585" ph="{...}" />
-                <marker date="1535657860000" expanded="true" signature="255:583" ph="{...}" />
-                <marker date="1535657860000" expanded="true" signature="370:422" ph="{...}" />
-                <marker date="1535657860000" expanded="true" signature="514:577" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="6:173" ph="..." />
+                <marker date="1535670877000" expanded="true" signature="209:1745" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="288:1743" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="403:455" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="547:769" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="573:648" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="680:759" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="865:1230" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="891:1109" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="990:1065" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="1141:1220" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="1290:1737" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="1316:1617" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="1492:1567" ph="{...}" />
+                <marker date="1535670877000" expanded="true" signature="1649:1727" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/appsettings.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/appsettings.Development.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -127,6 +141,7 @@
     <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/DB/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/DB/IRSMonkeyContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/UserController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -141,8 +156,9 @@
         <option value="$PROJECT_DIR$/Models/DB/IRSMonkeyContext.cs" />
         <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
-        <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
         <option value="$PROJECT_DIR$/appsettings.json" />
+        <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/Properties/launchSettings.json" />
       </list>
     </option>
   </component>
@@ -166,6 +182,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -176,14 +193,13 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IrsMonkeyApi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Controllers" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Properties" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,7 +287,8 @@
       <updated>1535497203028</updated>
       <workItem from="1535497210869" duration="3541000" />
       <workItem from="1535642614099" duration="4231000" />
-      <workItem from="1535653300662" duration="4509000" />
+      <workItem from="1535653300662" duration="4600000" />
+      <workItem from="1535669480490" duration="1923000" />
     </task>
     <task id="LOCAL-00001" summary="new query">
       <created>1535500075715</created>
@@ -287,11 +304,18 @@
       <option name="project" value="LOCAL" />
       <updated>1535653790110</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="users controller implmentation">
+      <created>1535658645143</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1535658645143</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12281000" />
+    <option name="totallyTimeSpent" value="14295000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,13 +328,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1611" height="1321" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.50970876" visible="true" weight="0.277884" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.50970876" visible="true" weight="0.28107074" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32872254" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32872254" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -321,7 +344,7 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.3295362" />
       <window_info anchor="bottom" id="REST Client" order="12" weight="0.24328722" />
-      <window_info anchor="bottom" id="Terminal" order="13" weight="0.3295362" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" visible="true" weight="0.3295362" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="15" weight="0.32872254" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -340,7 +363,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new query" />
-    <option name="LAST_COMMIT_MESSAGE" value="new query" />
+    <MESSAGE value="users controller implmentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="users controller implmentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -354,9 +378,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appsettings.Development.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/TodoContext.cs" />
@@ -373,23 +394,75 @@
     <entry file="file://$PROJECT_DIR$/Models/Member.cs" />
     <entry file="file://$PROJECT_DIR$/Models/User.cs" />
     <entry file="file://$PROJECT_DIR$/Models/DB/User.cs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/DB/IRSMonkeyContext.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="975">
+          <caret line="67" column="65" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/UserController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="55" column="15" lean-forward="true" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
           <folding>
-            <marker date="1535653715000" expanded="false" signature="6:47" ph="..." />
-            <marker date="1535653715000" expanded="true" signature="81:1252" ph="{...}" />
-            <marker date="1535653715000" expanded="true" signature="113:1250" ph="{...}" />
-            <marker date="1535653715000" expanded="true" signature="141:445" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="6:173" ph="..." />
+            <marker date="1535670877000" expanded="true" signature="209:1745" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="288:1743" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="403:455" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="547:769" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="573:648" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="680:759" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="865:1230" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="891:1109" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="990:1065" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="1141:1220" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="1290:1737" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="1316:1617" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="1492:1567" ph="{...}" />
+            <marker date="1535670877000" expanded="true" signature="1649:1727" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appsettings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appsettings.Development.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Properties/launchSettings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <marker date="1535497147000" expanded="false" signature="6:255" ph="..." />
+            <marker date="1535497147000" expanded="true" signature="279:606" ph="{...}" />
+            <marker date="1535497147000" expanded="true" signature="306:604" ph="{...}" />
+            <marker date="1535497147000" expanded="true" signature="359:433" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Startup.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        <state relative-caret-position="570">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
           <folding>
-            <marker date="1535657751000" expanded="true" signature="6:496" ph="..." />
+            <marker date="1535657751000" expanded="false" signature="6:496" ph="..." />
             <marker date="1535657751000" expanded="true" signature="520:1557" ph="{...}" />
             <marker date="1535657751000" expanded="true" signature="547:1555" ph="{...}" />
             <marker date="1535657751000" expanded="true" signature="606:669" ph="{...}" />
@@ -398,93 +471,6 @@
             <marker date="1535657751000" expanded="true" signature="1320:1397" ph="{...}" />
             <marker date="1535657751000" expanded="true" signature="1414:1473" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/DB/IRSMonkeyContext.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="67" column="65" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
-          <folding>
-            <marker date="1535654964000" expanded="false" signature="6:96" ph="..." />
-            <marker date="1535654964000" expanded="true" signature="130:51354" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="186:51352" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="226:246" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="351:371" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="3866:51346" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="3925:5209" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="5265:5680" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="5737:6016" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="6071:6344" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="6395:7196" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="7249:8022" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="8073:9332" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="9394:9688" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="9754:10126" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="10185:13298" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="13363:14816" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="14877:15785" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="15845:17028" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="17094:18207" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="18273:18539" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="18594:18938" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="19000:19468" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="19524:19898" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="19949:20673" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="20728:21227" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="21287:21578" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="21640:23583" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="23645:24607" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="24667:26590" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="26643:30190" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="30259:31574" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="31635:31926" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="31985:32270" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="32321:33283" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="33338:34178" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="34233:34513" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="34565:36098" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="36154:37150" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="37207:38561" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="38619:38902" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="38961:39260" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="39317:39801" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="39864:40445" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="40496:40730" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="40787:41066" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="41122:41502" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="41561:41984" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="42037:44541" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="44602:44950" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="45006:47241" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="47300:47585" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="47642:47921" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="47972:48484" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="48539:49379" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="49432:50514" ph="{...}" />
-            <marker date="1535654964000" expanded="true" signature="50571:51334" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/UserController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <marker date="1535657860000" expanded="true" signature="6:140" ph="..." />
-            <marker date="1535657860000" expanded="true" signature="176:585" ph="{...}" />
-            <marker date="1535657860000" expanded="true" signature="255:583" ph="{...}" />
-            <marker date="1535657860000" expanded="true" signature="370:422" ph="{...}" />
-            <marker date="1535657860000" expanded="true" signature="514:577" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appsettings.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
