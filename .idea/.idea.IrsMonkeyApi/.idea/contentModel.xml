@@ -5,7 +5,9 @@
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="Bin" t="ExcludeRecursive" />
-      <e p="Controllers" t="Include" />
+      <e p="Controllers" t="Include">
+        <e p="UserController.cs" t="Include" />
+      </e>
       <e p="IrsMonkeyApi.csproj" t="IncludeRecursive" />
       <e p="Models" t="Include">
         <e p="DB" t="Include">
