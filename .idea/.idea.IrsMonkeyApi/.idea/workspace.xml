@@ -2,12 +2,82 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c30e2f8-6f3b-4b03-935b-0ab0ec3aa10e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/TodoController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/TodoContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/TodoItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Alert.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/AlertType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/AmountType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/DebtType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/File.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Folder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Form.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormControlType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormPredefinedField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormQuestion.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormQuestionAnswer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormResolution.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormSubmitted.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormSubmittedAnswer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormSubmittedStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/FormType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/GarnishmentType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/IRSMonkeyContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Irsoffice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Item.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/LienType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/LogActionType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/LogMemberAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/LogOrderBilling.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/LogUserAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Member.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/MemberResolutionLetter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/MemberStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/MembershipType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Menu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/MenuRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/MenuType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Order.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/OrderItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/PaymentLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/PaymentType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/QuestionType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Resolution.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/ResolutionLetter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Role.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/SignUpType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/StateCode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/TaxpediaPage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Ticket.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/TicketDocument.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/TicketLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/TicketStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/TicketType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/UserRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/Wizard.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/WizardStep.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.EntityFrameworkCore.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TodoController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ValuesController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IrsMonkeyApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IrsMonkeyApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/TodoContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/TodoItem.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.runtimeconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/IrsMonkeyApi.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,13 +90,16 @@
     <session id="840708611">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.62" value="1" />
+          <entry key="project.open.time.76" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="5" />
+          <entry key="cs" value="11" />
           <entry key="csproj" value="1" />
           <entry key="http" value="1" />
           <entry key="json" value="2" />
@@ -34,7 +107,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="5" />
+          <entry key="C#" value="11" />
           <entry key="Csproj" value="1" />
           <entry key="JSON" value="2" />
           <entry key="Scratch" value="1" />
@@ -42,12 +115,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="349" />
+          <entry key="cs" value="1554" />
+          <entry key="txt" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="349" />
+          <entry key="C#" value="1554" />
+          <entry key="PLAIN_TEXT" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.kubernetes.usages" />
@@ -55,88 +130,32 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controllers/ValuesController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="45" column="79" lean-forward="true" selection-start-line="45" selection-start-column="79" selection-end-line="45" selection-end-column="79" />
-              <folding>
-                <marker date="1535497147000" expanded="false" signature="6:128" ph="..." />
-                <marker date="1535497147000" expanded="true" signature="164:974" ph="{...}" />
-                <marker date="1535497147000" expanded="true" signature="269:972" ph="{...}" />
-                <marker date="1535497147000" expanded="true" signature="374:450" ph="{...}" />
-                <marker date="1535497147000" expanded="true" signature="553:601" ph="{...}" />
-                <marker date="1535497147000" expanded="true" signature="698:718" ph="{...}" />
-                <marker date="1535497147000" expanded="true" signature="830:850" ph="{...}" />
-                <marker date="1535497147000" expanded="true" signature="946:966" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IrsMonkeyApi.csproj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/TodoItem.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-              <folding>
-                <marker date="1535499351000" expanded="true" signature="29:193" ph="{...}" />
-                <marker date="1535499351000" expanded="true" signature="57:191" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/TodoContext.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-              <folding>
-                <marker date="1535499550000" expanded="true" signature="67:282" ph="{...}" />
-                <marker date="1535499550000" expanded="true" signature="111:280" ph="{...}" />
-                <marker date="1535499550000" expanded="true" signature="199:219" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Startup.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="58" lean-forward="true" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+            <state relative-caret-position="255">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
-                <marker date="1535499686000" expanded="true" signature="6:466" ph="..." />
-                <marker date="1535499686000" expanded="true" signature="490:935" ph="{...}" />
-                <marker date="1535499686000" expanded="true" signature="517:933" ph="{...}" />
-                <marker date="1535499686000" expanded="true" signature="590:825" ph="{...}" />
-                <marker date="1535499686000" expanded="true" signature="881:927" ph="{...}" />
+                <marker date="1535646844000" expanded="false" signature="6:439" ph="..." />
+                <marker date="1535646844000" expanded="true" signature="463:706" ph="{...}" />
+                <marker date="1535646844000" expanded="true" signature="490:704" ph="{...}" />
+                <marker date="1535646844000" expanded="true" signature="563:596" ph="{...}" />
+                <marker date="1535646844000" expanded="true" signature="652:698" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Controllers/TodoController.cs">
+        <entry file="file://$PROJECT_DIR$/Models/DB/User.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+            <state>
               <folding>
-                <marker date="1535500063000" expanded="true" signature="6:77" ph="..." />
-                <marker date="1535500063000" expanded="true" signature="113:530" ph="{...}" />
-                <marker date="1535500063000" expanded="true" signature="212:528" ph="{...}" />
-                <marker date="1535500063000" expanded="true" signature="317:522" ph="{...}" />
+                <marker date="1535653715000" expanded="false" signature="6:47" ph="..." />
+                <marker date="1535653715000" expanded="true" signature="81:1252" ph="{...}" />
+                <marker date="1535653715000" expanded="true" signature="113:1250" ph="{...}" />
+                <marker date="1535653715000" expanded="true" signature="141:445" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -148,12 +167,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response3.json" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Controllers/ValuesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/TodoItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/TodoContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/TodoController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/User.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -161,8 +176,10 @@
         <option value="$PROJECT_DIR$/IrsMonkeyApi.csproj" />
         <option value="$PROJECT_DIR$/Models/TodoItem.cs" />
         <option value="$PROJECT_DIR$/Models/TodoContext.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Controllers/TodoController.cs" />
+        <option value="$PROJECT_DIR$/Models/Member.cs" />
+        <option value="$PROJECT_DIR$/Models/User.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
   </component>
@@ -196,7 +213,13 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IrsMonkeyApi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Controllers" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Models" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IrsMonkeyApi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Models" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DB" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -209,7 +232,12 @@
   <component name="PropertiesComponent">
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="RiderNuGetCacheManager.AutoClear.global-packages" value="2" />
+    <property name="RiderNuGetCacheManager.AutoClear.http-cache" value="2" />
+    <property name="RiderNuGetCacheManager.AutoClear.packages-cache" value="2" />
+    <property name="RiderNuGetCacheManager.AutoClear.temp" value="1" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
@@ -284,12 +312,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1535497203028</updated>
-      <workItem from="1535497210869" duration="2619000" />
+      <workItem from="1535497210869" duration="3541000" />
+      <workItem from="1535642614099" duration="4231000" />
+      <workItem from="1535653300662" duration="341000" />
     </task>
+    <task id="LOCAL-00001" summary="new query">
+      <created>1535500075715</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1535500075716</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2619000" />
+    <option name="totallyTimeSpent" value="8113000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,18 +342,9 @@
     <frame x="1" y="22" width="1611" height="1321" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21606119" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.277884" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="NuGet" weight="0.3295362" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unit Tests" weight="0.3295362" />
-      <window_info anchor="bottom" id="REST Client" weight="0.24328722" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3295362" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Build" weight="0.32929516" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32872254" />
@@ -323,11 +352,20 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Errors In Solution" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="NuGet" order="7" weight="0.3295362" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.3295362" />
+      <window_info anchor="bottom" id="REST Client" order="12" weight="0.24328722" />
+      <window_info anchor="bottom" id="Terminal" order="13" visible="true" weight="0.3295362" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="15" weight="0.32872254" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" weight="0.32950923" />
+      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +373,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new query" />
+    <option name="LAST_COMMIT_MESSAGE" value="new query" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -356,76 +398,41 @@
     <entry file="file://$PROJECT_DIR$/appsettings.Development.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/ValuesController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="45" column="79" lean-forward="true" selection-start-line="45" selection-start-column="79" selection-end-line="45" selection-end-column="79" />
-          <folding>
-            <marker date="1535497147000" expanded="false" signature="6:128" ph="..." />
-            <marker date="1535497147000" expanded="true" signature="164:974" ph="{...}" />
-            <marker date="1535497147000" expanded="true" signature="269:972" ph="{...}" />
-            <marker date="1535497147000" expanded="true" signature="374:450" ph="{...}" />
-            <marker date="1535497147000" expanded="true" signature="553:601" ph="{...}" />
-            <marker date="1535497147000" expanded="true" signature="698:718" ph="{...}" />
-            <marker date="1535497147000" expanded="true" signature="830:850" ph="{...}" />
-            <marker date="1535497147000" expanded="true" signature="946:966" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/TodoContext.cs" />
     <entry file="file://$PROJECT_DIR$/IrsMonkeyApi.csproj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/TodoItem.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-          <folding>
-            <marker date="1535499351000" expanded="true" signature="29:193" ph="{...}" />
-            <marker date="1535499351000" expanded="true" signature="57:191" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/TodoContext.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding>
-            <marker date="1535499550000" expanded="true" signature="67:282" ph="{...}" />
-            <marker date="1535499550000" expanded="true" signature="111:280" ph="{...}" />
-            <marker date="1535499550000" expanded="true" signature="199:219" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/ValuesController.cs" />
+    <entry file="file://$PROJECT_DIR$/Controllers/TodoController.cs" />
+    <entry file="file://$PROJECT_DIR$/Models/TodoItem.cs" />
+    <entry file="file://$PROJECT_DIR$/Models/Member.cs" />
+    <entry file="file://$PROJECT_DIR$/Models/User.cs" />
     <entry file="file://$PROJECT_DIR$/Startup.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="58" lean-forward="true" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+        <state relative-caret-position="255">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <marker date="1535499686000" expanded="true" signature="6:466" ph="..." />
-            <marker date="1535499686000" expanded="true" signature="490:935" ph="{...}" />
-            <marker date="1535499686000" expanded="true" signature="517:933" ph="{...}" />
-            <marker date="1535499686000" expanded="true" signature="590:825" ph="{...}" />
-            <marker date="1535499686000" expanded="true" signature="881:927" ph="{...}" />
+            <marker date="1535646844000" expanded="false" signature="6:439" ph="..." />
+            <marker date="1535646844000" expanded="true" signature="463:706" ph="{...}" />
+            <marker date="1535646844000" expanded="true" signature="490:704" ph="{...}" />
+            <marker date="1535646844000" expanded="true" signature="563:596" ph="{...}" />
+            <marker date="1535646844000" expanded="true" signature="652:698" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/TodoController.cs">
+    <entry file="file://$PROJECT_DIR$/Models/DB/User.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        <state>
           <folding>
-            <marker date="1535500063000" expanded="true" signature="6:77" ph="..." />
-            <marker date="1535500063000" expanded="true" signature="113:530" ph="{...}" />
-            <marker date="1535500063000" expanded="true" signature="212:528" ph="{...}" />
-            <marker date="1535500063000" expanded="true" signature="317:522" ph="{...}" />
+            <marker date="1535653715000" expanded="false" signature="6:47" ph="..." />
+            <marker date="1535653715000" expanded="true" signature="81:1252" ph="{...}" />
+            <marker date="1535653715000" expanded="true" signature="113:1250" ph="{...}" />
+            <marker date="1535653715000" expanded="true" signature="141:445" ph="{...}" />
           </folding>
         </state>
       </provider>

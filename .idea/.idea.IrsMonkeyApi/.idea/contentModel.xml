@@ -1,20 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="/25454c43" t="IncludeRecursive" />
-    <e p="/app" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="Bin" t="ExcludeRecursive" />
-      <e p="Controllers" t="Include">
-        <e p="TodoController.cs" t="Include" />
-        <e p="ValuesController.cs" t="Include" />
-      </e>
+      <e p="Controllers" t="Include" />
       <e p="IrsMonkeyApi.csproj" t="IncludeRecursive" />
       <e p="Models" t="Include">
-        <e p="TodoContext.cs" t="Include" />
-        <e p="TodoItem.cs" t="Include" />
+        <e p="DB" t="Include">
+          <e p="Alert.cs" t="Include" />
+          <e p="AlertType.cs" t="Include" />
+          <e p="AmountType.cs" t="Include" />
+          <e p="DebtType.cs" t="Include" />
+          <e p="File.cs" t="Include" />
+          <e p="Folder.cs" t="Include" />
+          <e p="Form.cs" t="Include" />
+          <e p="FormControlType.cs" t="Include" />
+          <e p="FormPredefinedField.cs" t="Include" />
+          <e p="FormQuestion.cs" t="Include" />
+          <e p="FormQuestionAnswer.cs" t="Include" />
+          <e p="FormResolution.cs" t="Include" />
+          <e p="FormSubmitted.cs" t="Include" />
+          <e p="FormSubmittedAnswer.cs" t="Include" />
+          <e p="FormSubmittedStatus.cs" t="Include" />
+          <e p="FormType.cs" t="Include" />
+          <e p="GarnishmentType.cs" t="Include" />
+          <e p="IRSMonkeyContext.cs" t="Include" />
+          <e p="Irsoffice.cs" t="Include" />
+          <e p="Item.cs" t="Include" />
+          <e p="LienType.cs" t="Include" />
+          <e p="LogActionType.cs" t="Include" />
+          <e p="LogMemberAction.cs" t="Include" />
+          <e p="LogOrderBilling.cs" t="Include" />
+          <e p="LogUserAction.cs" t="Include" />
+          <e p="Member.cs" t="Include" />
+          <e p="MemberResolutionLetter.cs" t="Include" />
+          <e p="MembershipType.cs" t="Include" />
+          <e p="MemberStatus.cs" t="Include" />
+          <e p="Menu.cs" t="Include" />
+          <e p="MenuRole.cs" t="Include" />
+          <e p="MenuType.cs" t="Include" />
+          <e p="Order.cs" t="Include" />
+          <e p="OrderItem.cs" t="Include" />
+          <e p="PaymentLog.cs" t="Include" />
+          <e p="PaymentType.cs" t="Include" />
+          <e p="QuestionType.cs" t="Include" />
+          <e p="Resolution.cs" t="Include" />
+          <e p="ResolutionLetter.cs" t="Include" />
+          <e p="Role.cs" t="Include" />
+          <e p="SignUpType.cs" t="Include" />
+          <e p="StateCode.cs" t="Include" />
+          <e p="TaxpediaPage.cs" t="Include" />
+          <e p="Ticket.cs" t="Include" />
+          <e p="TicketDocument.cs" t="Include" />
+          <e p="TicketLog.cs" t="Include" />
+          <e p="TicketStatus.cs" t="Include" />
+          <e p="TicketType.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+          <e p="UserRole.cs" t="Include" />
+          <e p="Wizard.cs" t="Include" />
+          <e p="WizardStep.cs" t="Include" />
+        </e>
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -33,5 +80,6 @@
     </e>
     <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_IrsMonkeyApi.340352400.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
   </component>
 </project>
