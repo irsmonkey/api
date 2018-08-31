@@ -3,9 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Net.Http.Formatting;
+using System.Reflection.Metadata.Ecma335;
+using System.Threading.Tasks;
 using IrsMonkeyApi.Models.DB;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Remotion.Linq.Clauses;
+using IrsMonkeyApi.Models.DAL;
 
 namespace IrsMonkeyApi.Controllers
 {
@@ -13,10 +23,12 @@ namespace IrsMonkeyApi.Controllers
     public class UserController : Controller
     {
         private readonly IRSMonkeyContext _context;
+        private readonly IUserDal _dal;
 
-        public UserController(IRSMonkeyContext context)
+        public UserController(IRSMonkeyContext context, IUserDal dal)
         {
             _context = context;
+            _dal = dal;
         }
 
         [HttpGet]
@@ -44,7 +56,7 @@ namespace IrsMonkeyApi.Controllers
                     return NotFound();
                 }
 
-                return user;
+                return Ok(user);
             }
             catch (Exception e)
             {
@@ -53,16 +65,10 @@ namespace IrsMonkeyApi.Controllers
         }
 
         [HttpPost, Route("ValidateUser")]
-        public string ValidateUser([FromBody] string postBody)
+        public ActionResult Post([FromBody] User user)
         {
-            try
-            {
-                return postBody;
-            }
-            catch (Exception e)
-            {
-               throw new Exception(e.ToString());
-            }
+            var Validated = _dal.UserValidation(user.Email, user.PasswordSalt);
+            return Ok(Validated);
         }
     }
 }

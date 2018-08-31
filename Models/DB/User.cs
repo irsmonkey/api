@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 namespace IrsMonkeyApi.Models.DB
 {
