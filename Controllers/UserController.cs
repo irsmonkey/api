@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Http.Formatting;
 using IrsMonkeyApi.Models.DB;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,7 +34,7 @@ namespace IrsMonkeyApi.Controllers
         }
 
         [HttpGet("{id}", Name = "GetUser")]
-        public ActionResult<User> GetById(long id)
+        public ActionResult<User> GetById(int id)
         {
             try
             {
@@ -51,19 +52,12 @@ namespace IrsMonkeyApi.Controllers
             }
         }
 
-        public ActionResult<User> GetByEmail(string Email)
+        [HttpPost, Route("ValidateUser")]
+        public string ValidateUser([FromBody] string postBody)
         {
             try
             {
-                var user = from u in _context.User
-                    where u.Email.Equals(Email)
-                    select u;
-                if (!user.Any())
-                {
-                    return NotFound();
-                }
-
-                return Json(user);
+                return postBody;
             }
             catch (Exception e)
             {
