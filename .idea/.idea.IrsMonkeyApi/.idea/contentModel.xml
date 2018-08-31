@@ -41,6 +41,7 @@
           <e p="LogOrderBilling.cs" t="Include" />
           <e p="LogUserAction.cs" t="Include" />
           <e p="Member.cs" t="Include" />
+          <e p="MemberLogin.cs" t="Include" />
           <e p="MemberResolutionLetter.cs" t="Include" />
           <e p="MembershipType.cs" t="Include" />
           <e p="MemberStatus.cs" t="Include" />

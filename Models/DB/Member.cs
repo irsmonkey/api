@@ -10,12 +10,12 @@ namespace IrsMonkeyApi.Models.DB
             Folder = new HashSet<Folder>();
             FormSubmitted = new HashSet<FormSubmitted>();
             LogMemberAction = new HashSet<LogMemberAction>();
+            MemberLogin = new HashSet<MemberLogin>();
             MemberResolutionLetter = new HashSet<MemberResolutionLetter>();
             Order = new HashSet<Order>();
             PaymentLog = new HashSet<PaymentLog>();
             Ticket = new HashSet<Ticket>();
             TicketLog = new HashSet<TicketLog>();
-            User = new HashSet<User>();
         }
 
         public Guid MemberId { get; set; }
@@ -25,7 +25,6 @@ namespace IrsMonkeyApi.Models.DB
         public string Email { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int MembershipTypeId { get; set; }
-        public string PasswordSalt { get; set; }
         public int MembershipNumber { get; set; }
         public string Ssn { get; set; }
         public DateTime SignUpDate { get; set; }
@@ -35,8 +34,6 @@ namespace IrsMonkeyApi.Models.DB
         public string BusinessState { get; set; }
         public string BusinessZipCode { get; set; }
         public string Tin { get; set; }
-        public bool IsFirstLogin { get; set; }
-        public bool Deleted { get; set; }
         public int? SignUpTypeId { get; set; }
         public string SubId { get; set; }
         public int? MemberStatusId { get; set; }
@@ -46,17 +43,22 @@ namespace IrsMonkeyApi.Models.DB
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
+        public string UtmSouce { get; set; }
+        public string UtmMedium { get; set; }
+        public string UtmCampaign { get; set; }
+        public string UtmTerm { get; set; }
+        public string UtmContent { get; set; }
 
         public MemberStatus MemberStatus { get; set; }
         public MembershipType MembershipType { get; set; }
         public ICollection<Folder> Folder { get; set; }
         public ICollection<FormSubmitted> FormSubmitted { get; set; }
         public ICollection<LogMemberAction> LogMemberAction { get; set; }
+        public ICollection<MemberLogin> MemberLogin { get; set; }
         public ICollection<MemberResolutionLetter> MemberResolutionLetter { get; set; }
         public ICollection<Order> Order { get; set; }
         public ICollection<PaymentLog> PaymentLog { get; set; }
         public ICollection<Ticket> Ticket { get; set; }
         public ICollection<TicketLog> TicketLog { get; set; }
-        public ICollection<User> User { get; set; }
     }
 }

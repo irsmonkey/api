@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 namespace IrsMonkeyApi.Models.DB
 {
@@ -18,15 +17,11 @@ namespace IrsMonkeyApi.Models.DB
         public int UserId { get; set; }
         public string Email { get; set; }
         public string PasswordSalt { get; set; }
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-        public int? CreatedBy { get; set; }
-        public int? UpdatedBy { get; set; }
         public bool? IsFirstLogin { get; set; }
         public bool? IsDeleted { get; set; }
-        public Guid? MemberId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
-        public Member Member { get; set; }
         public ICollection<LogUserAction> LogUserAction { get; set; }
         public ICollection<Ticket> TicketAssignedByNavigation { get; set; }
         public ICollection<Ticket> TicketAssignedToNavigation { get; set; }

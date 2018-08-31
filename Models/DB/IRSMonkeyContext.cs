@@ -40,6 +40,7 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<LogOrderBilling> LogOrderBilling { get; set; }
         public virtual DbSet<LogUserAction> LogUserAction { get; set; }
         public virtual DbSet<Member> Member { get; set; }
+        public virtual DbSet<MemberLogin> MemberLogin { get; set; }
         public virtual DbSet<MemberResolutionLetter> MemberResolutionLetter { get; set; }
         public virtual DbSet<MembershipType> MembershipType { get; set; }
         public virtual DbSet<MemberStatus> MemberStatus { get; set; }
@@ -66,8 +67,6 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<Wizard> Wizard { get; set; }
         public virtual DbSet<WizardStep> WizardStep { get; set; }
-
-      
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -688,7 +687,7 @@ namespace IrsMonkeyApi.Models.DB
             {
                 entity.Property(e => e.MemberId)
                     .HasColumnName("MemberID")
-                    .ValueGeneratedNever();
+                    .HasDefaultValueSql("(newsequentialid())");
 
                 entity.Property(e => e.Address).HasMaxLength(100);
 
@@ -735,11 +734,6 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.Property(e => e.MembershipTypeId).HasColumnName("MembershipTypeID");
 
-                entity.Property(e => e.PasswordSalt)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Phone)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -772,6 +766,31 @@ namespace IrsMonkeyApi.Models.DB
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
+                entity.Property(e => e.UtmCampaign)
+                    .HasColumnName("utm_campaign")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UtmContent)
+                    .HasColumnName("utm_content")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UtmMedium)
+                    .HasColumnName("utm_medium")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UtmSouce)
+                    .HasColumnName("utm_souce")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UtmTerm)
+                    .HasColumnName("utm_term")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.ZipCode).HasMaxLength(5);
 
                 entity.HasOne(d => d.MemberStatus)
@@ -784,6 +803,33 @@ namespace IrsMonkeyApi.Models.DB
                     .HasForeignKey(d => d.MembershipTypeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Member_MembershipType");
+            });
+
+            modelBuilder.Entity<MemberLogin>(entity =>
+            {
+                entity.HasIndex(e => e.Id)
+                    .HasName("MemberLogin_id_uindex")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.CreatedAt).HasColumnType("datetime");
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Username)
+                    .HasColumnName("username")
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Member)
+                    .WithMany(p => p.MemberLogin)
+                    .HasForeignKey(d => d.MemberId)
+                    .HasConstraintName("MemberLogin_Member_MemberID_fk");
             });
 
             modelBuilder.Entity<MemberResolutionLetter>(entity =>
@@ -1251,22 +1297,21 @@ namespace IrsMonkeyApi.Models.DB
             {
                 entity.Property(e => e.UserId).HasColumnName("UserID");
 
-                entity.Property(e => e.CreatedAt).HasColumnType("datetime");
-
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.PasswordSalt)
                     .HasMaxLength(255)
                     .IsUnicode(false);
-
-                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.HasOne(d => d.Member)
-                    .WithMany(p => p.User)
-                    .HasForeignKey(d => d.MemberId)
-                    .HasConstraintName("User_Member_MemberID_fk");
             });
 
             modelBuilder.Entity<UserRole>(entity =>
