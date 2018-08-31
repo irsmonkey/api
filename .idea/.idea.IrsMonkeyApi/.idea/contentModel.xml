@@ -11,8 +11,8 @@
       <e p="IrsMonkeyApi.csproj" t="IncludeRecursive" />
       <e p="Models" t="Include">
         <e p="DAL" t="Include">
-          <e p="IUserDal.cs" t="Include" />
-          <e p="UserDal.cs" t="Include" />
+          <e p="IMemberLoginDal.cs" t="Include" />
+          <e p="MemberLoginDal.cs" t="Include" />
         </e>
         <e p="DB" t="Include">
           <e p="Alert.cs" t="Include" />

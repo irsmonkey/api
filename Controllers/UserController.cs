@@ -1,21 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Formatting;
-using System.Reflection.Metadata.Ecma335;
-using System.Threading.Tasks;
-using IrsMonkeyApi.Models.DB;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Remotion.Linq.Clauses;
 using IrsMonkeyApi.Models.DAL;
+using IrsMonkeyApi.Models.DB;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IrsMonkeyApi.Controllers
 {
@@ -23,9 +11,9 @@ namespace IrsMonkeyApi.Controllers
     public class UserController : Controller
     {
         private readonly IRSMonkeyContext _context;
-        private readonly IUserDal _dal;
+        private readonly IMemberLoginDal _dal;
 
-        public UserController(IRSMonkeyContext context, IUserDal dal)
+        public UserController(IRSMonkeyContext context, IMemberLoginDal dal)
         {
             _context = context;
             _dal = dal;
@@ -67,7 +55,7 @@ namespace IrsMonkeyApi.Controllers
         [HttpPost, Route("ValidateUser")]
         public ActionResult Post([FromBody] User user)
         {
-            var Validated = _dal.UserValidation(user.Email, user.PasswordSalt);
+            var Validated = _dal.ValidateUser(user.Email, user.PasswordSalt);
             return Ok(Validated);
         }
     }
