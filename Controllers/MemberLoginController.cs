@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace IrsMonkeyApi.Controllers
 {
     [Route("api/[controller]")]
-    public class UserController : Controller
+    public class MemberLoginController : Controller
     {
         private readonly IRSMonkeyContext _context;
         private readonly IMemberLoginDal _dal;
 
-        public UserController(IRSMonkeyContext context, IMemberLoginDal dal)
+        public MemberLoginController(IRSMonkeyContext context, IMemberLoginDal dal)
         {
             _context = context;
             _dal = dal;
@@ -21,11 +21,11 @@ namespace IrsMonkeyApi.Controllers
 
         [HttpGet]
         [Route("getAllUsers")]
-        public IEnumerable<User> GetAll()
+        public IEnumerable<MemberLogin> GetAll()
         {
             try
             {
-                return _context.User.ToList();
+                return _context.MemberLogin.ToList();
             }
             catch (Exception e)
             {
@@ -34,11 +34,11 @@ namespace IrsMonkeyApi.Controllers
         }
 
         [HttpGet("{id}", Name = "GetUser")]
-        public ActionResult<User> GetById(int id)
+        public ActionResult<MemberLogin> GetById(int id)
         {
             try
             {
-                var user = _context.User.Find(id);
+                var user = _context.MemberLogin.Find(id);
                 if (user == null)
                 {
                     return NotFound();
@@ -53,9 +53,9 @@ namespace IrsMonkeyApi.Controllers
         }
 
         [HttpPost, Route("ValidateUser")]
-        public ActionResult Post([FromBody] User user)
+        public ActionResult Post([FromBody] MemberLogin Member)
         {
-            var Validated = _dal.ValidateUser(user.Email, user.PasswordSalt);
+            var Validated = _dal.ValidateUser(Member.Username, Member.Password);
             return Ok(Validated);
         }
     }

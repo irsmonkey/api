@@ -17,9 +17,9 @@ namespace IrsMonkeyApi.Models.DAL
         {
             try
             {
-                var validated = (from u in _context.User
-                    where u.Email == username && u.PasswordSalt == password
-                    select u).SingleOrDefault();
+                var validated = (from m in _context.MemberLogin
+                    where m.Username == username && m.Password == password
+                    select m).SingleOrDefault();
 
                 return validated != null;
             }
