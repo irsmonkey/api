@@ -36,12 +36,12 @@ namespace IrsMonkeyApi.Controllers
         [HttpPost, Route("AddMember")]
         public ActionResult Add([FromBody] MemberLogin Member)
         {
+            var newMember = _dal.AddMember(Member);
             try
             {
-                var newMebmer = _dal.AddMember(Member);
-                if (newMebmer != null)
+                if (newMember != null)
                 {
-                    return Accepted(newMebmer);
+                    return Accepted(newMember);
                 }
                 else
                 {
