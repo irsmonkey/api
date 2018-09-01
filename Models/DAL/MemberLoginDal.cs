@@ -28,5 +28,19 @@ namespace IrsMonkeyApi.Models.DAL
                 throw new Exception(e.ToString());
             }
         }
+
+        public MemberLogin AddMember(MemberLogin member)
+        {
+            try
+            {
+                _context.Add(member);
+                var newMember = _context.SaveChanges();
+                return newMember > 0 ? member : null;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+        }
     }
 }

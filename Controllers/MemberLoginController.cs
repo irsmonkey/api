@@ -19,44 +19,39 @@ namespace IrsMonkeyApi.Controllers
             _dal = dal;
         }
 
-        [HttpGet]
-        [Route("getAllUsers")]
-        public IEnumerable<MemberLogin> GetAll()
+        [HttpPost, Route("ValidateMember")]
+        public ActionResult Post([FromBody] MemberLogin member)
         {
             try
             {
-                return _context.MemberLogin.ToList();
+                var Validated = _dal.ValidateUser(member.Username, member.Password);
+                return Ok(Validated);
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString());
+                return BadRequest(e);
             }
         }
 
-        [HttpGet("{id}", Name = "GetUser")]
-        public ActionResult<MemberLogin> GetById(int id)
+        [HttpPost, Route("AddMember")]
+        public ActionResult Add([FromBody] MemberLogin Member)
         {
             try
             {
-                var user = _context.MemberLogin.Find(id);
-                if (user == null)
+                var newMebmer = _dal.AddMember(Member);
+                if (newMebmer != null)
                 {
-                    return NotFound();
+                    return Accepted(newMebmer);
                 }
-
-                return Ok(user);
+                else
+                {
+                    return BadRequest("Unable to add");
+                }
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString());
+                return BadRequest(e);
             }
-        }
-
-        [HttpPost, Route("ValidateUser")]
-        public ActionResult Post([FromBody] MemberLogin Member)
-        {
-            var Validated = _dal.ValidateUser(Member.Username, Member.Password);
-            return Ok(Validated);
         }
     }
 }
