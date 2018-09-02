@@ -6,6 +6,7 @@
       <e p="appsettings.json" t="Include" />
       <e p="Bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
+        <e p="MemberController.cs" t="Include" />
         <e p="MemberLoginController.cs" t="Include" />
       </e>
       <e p="IrsMonkeyApi.csproj" t="IncludeRecursive" />
