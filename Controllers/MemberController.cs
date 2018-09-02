@@ -21,14 +21,7 @@ namespace IrsMonkeyApi.Controllers
             try
             {
                 var member = _dal.GetMember(id);
-                if (member != null)
-                {
-                    return Ok(member);
-                }
-                else
-                {
-                    return NoContent();
-                }
+                return member != null ? (IActionResult) Ok(member) : NoContent();
             }
             catch (Exception e)
             {
@@ -42,14 +35,23 @@ namespace IrsMonkeyApi.Controllers
             try
             {
                 var savedMember = _dal.SaveMember(member);
-                if (savedMember != null)
-                {
-                    return Accepted(savedMember);
-                }
-                else
-                {
-                    return BadRequest("Data could not be saved");
-                }
+                return savedMember != null
+                    ? (IActionResult) Accepted(savedMember)
+                    : BadRequest("Data could not be saved");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
+        [Route("UpdateMember"), HttpPut]
+        public IActionResult Update([FromBody] Member member)
+        {
+            try
+            {
+                var updatedMember = _dal.UpdateMember(member);
+                return updatedMember != null ? (IActionResult) Accepted(updatedMember) : BadRequest();
             }
             catch (Exception e)
             {
