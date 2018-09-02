@@ -6,7 +6,7 @@ namespace IrsMonkeyApi.Models.DAL
 {
     public class MemberLoginDal: IMemberLoginDal
     {
-        private IRSMonkeyContext _context;
+        private readonly IRSMonkeyContext _context;
 
         public MemberLoginDal(IRSMonkeyContext context)
         {
@@ -29,13 +29,13 @@ namespace IrsMonkeyApi.Models.DAL
             }
         }
 
-        public MemberLogin AddMember(MemberLogin member)
+        public MemberLogin AddMember(MemberLogin memberLogin)
         {
             try
             {
-                _context.Add(member);
-                var newMember = _context.SaveChanges();
-                return newMember > 0 ? member : null;
+                _context.Add(memberLogin);
+                var newMemberLogin = _context.SaveChanges();
+                return newMemberLogin > 0 ? memberLogin : null;
             }
             catch (Exception e)
             {
