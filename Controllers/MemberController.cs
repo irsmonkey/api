@@ -32,7 +32,28 @@ namespace IrsMonkeyApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.ToString());
+                return BadRequest(e);
+            }
+        }
+
+        [Route("CreateMember"), HttpPost]
+        public IActionResult Save([FromBody] Member member)
+        {
+            try
+            {
+                var savedMember = _dal.SaveMember(member);
+                if (savedMember != null)
+                {
+                    return Accepted(savedMember);
+                }
+                else
+                {
+                    return BadRequest("Data could not be saved");
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
             }
         }
     }
