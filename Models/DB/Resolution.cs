@@ -17,6 +17,9 @@ namespace IrsMonkeyApi.Models.DB
         public bool? CollectionIssue { get; set; }
         public int? TaxpediaPageId { get; set; }
         public int? AppealsTaxpediaPageId { get; set; }
+        public bool? IsDeleted { get; set; }
+        public int? CreatedAt { get; set; }
+        public int? UpdatedAt { get; set; }
 
         public ICollection<FormResolution> FormResolution { get; set; }
         public ICollection<ResolutionLetter> ResolutionLetter { get; set; }

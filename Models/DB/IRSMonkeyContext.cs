@@ -818,7 +818,7 @@ namespace IrsMonkeyApi.Models.DB
                 entity.Property(e => e.CreatedAt).HasColumnType("datetime");
 
                 entity.Property(e => e.Password)
-                    .HasMaxLength(1)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Username)
@@ -1078,6 +1078,8 @@ namespace IrsMonkeyApi.Models.DB
                 entity.Property(e => e.ResolutionId).HasColumnName("ResolutionID");
 
                 entity.Property(e => e.AppealsTaxpediaPageId).HasColumnName("AppealsTaxpediaPageID");
+
+                entity.Property(e => e.IsDeleted).HasColumnName("isDeleted");
 
                 entity.Property(e => e.Resolution1)
                     .HasColumnName("Resolution")
