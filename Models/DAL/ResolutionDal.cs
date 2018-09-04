@@ -26,12 +26,14 @@ namespace IrsMonkeyApi.Models.DAL
                         .Include(w => w.Wizard)
                         .ThenInclude(f=> f.Form)
                         .ThenInclude(q => q.FormQuestion)
+                        .ThenInclude(qa => qa.FormQuestionAnswer)
                         .ToList();
                     
                     var resolutionsWithOutWizard = _context.Resolution.Where(r => r.IsDeleted == false && r.Wizard.Count == 0)
                         .Include(fr => fr.FormResolution)
                         .ThenInclude(f=> f.Form)
                         .ThenInclude(q => q.FormQuestion)
+                        .ThenInclude(qa => qa.FormQuestionAnswer)
                         .ToList();
                     
                     resolutions.AddRange(resolutionsWithOutWizard);
