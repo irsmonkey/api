@@ -31,6 +31,7 @@ namespace IrsMonkeyApi
             services.AddScoped<IMemberDal, MemberDal>();
             services.AddScoped<IFormDal, FormDal>();
             services.AddScoped<IResolutionDal, ResolutionDal>();
+            services.AddScoped<IGeoLocationDal, GeoLocationDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

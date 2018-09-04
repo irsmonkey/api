@@ -32,6 +32,7 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<FormSubmittedStatus> FormSubmittedStatus { get; set; }
         public virtual DbSet<FormType> FormType { get; set; }
         public virtual DbSet<GarnishmentType> GarnishmentType { get; set; }
+        public virtual DbSet<GeoLocation> GeoLocation { get; set; }
         public virtual DbSet<Irsoffice> Irsoffice { get; set; }
         public virtual DbSet<Item> Item { get; set; }
         public virtual DbSet<LienType> LienType { get; set; }
@@ -484,6 +485,32 @@ namespace IrsMonkeyApi.Models.DB
                     .IsUnicode(false);
 
                 entity.Property(e => e.ResolutionCategoryId).HasColumnName("ResolutionCategoryID");
+            });
+
+            modelBuilder.Entity<GeoLocation>(entity =>
+            {
+                entity.HasIndex(e => e.ZipCode)
+                    .HasName("GeoLocation_ZipCode_index");
+
+                entity.Property(e => e.City)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.County)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.State)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.StateName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ZipCode)
+                    .HasMaxLength(12)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Irsoffice>(entity =>
