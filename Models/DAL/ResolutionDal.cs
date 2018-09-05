@@ -41,9 +41,9 @@ namespace IrsMonkeyApi.Models.DAL
                     return resolutions;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception(e.ToString());
+                throw;
             }
         }
 

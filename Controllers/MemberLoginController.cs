@@ -10,13 +10,13 @@ namespace IrsMonkeyApi.Controllers
     [Route("api/[controller]")]
     public class MemberLoginController : Controller
     {
-        private readonly IRSMonkeyContext _context;
         private readonly IMemberLoginDal _dal;
+        private readonly IMemberDal _memberDal;
 
-        public MemberLoginController(IRSMonkeyContext context, IMemberLoginDal dal)
+        public MemberLoginController(IMemberLoginDal dal, IMemberDal memberDal)
         {
-            _context = context;
             _dal = dal;
+            _memberDal = memberDal;
         }
 
         [HttpPost, Route("ValidateMember")]
@@ -24,8 +24,8 @@ namespace IrsMonkeyApi.Controllers
         {
             try
             {
-                var Validated = _dal.ValidateUser(member.Username, member.Password);
-                return Ok(Validated);
+                var validated = _dal.ValidateUser(member.Username, member.Password);
+                return Ok(validated);
             }
             catch (Exception e)
             {
@@ -34,19 +34,13 @@ namespace IrsMonkeyApi.Controllers
         }
 
         [HttpPost, Route("AddMember")]
-        public ActionResult Add([FromBody] MemberLogin Member)
+        public ActionResult Add([FromBody] MemberLogin member)
         {
-            var newMember = _dal.AddMember(Member);
+            
+            var memberLogin = _dal.AddMember(member);
             try
             {
-                if (newMember != null)
-                {
-                    return Accepted(newMember);
-                }
-                else
-                {
-                    return BadRequest("Unable to add");
-                }
+                return memberLogin != null ? (ActionResult) Accepted(memberLogin) : BadRequest("Unable to add");
             }
             catch (Exception e)
             {

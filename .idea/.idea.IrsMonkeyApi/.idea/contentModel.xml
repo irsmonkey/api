@@ -82,6 +82,7 @@
           <e p="Wizard.cs" t="Include" />
           <e p="WizardStep.cs" t="Include" />
         </e>
+        <e p="Dto" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">

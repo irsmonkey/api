@@ -17,15 +17,13 @@ namespace IrsMonkeyApi.Models.DAL
         {
             try
             {
-                var validated = (from m in _context.MemberLogin
-                    where m.Username == username && m.Password == password
-                    select m).SingleOrDefault();
-
+                var validated = _context.MemberLogin
+                    .FirstOrDefault(ml => ml.Username == username && ml.Password == password);
                 return validated != null;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception(e.ToString());
+                throw;
             }
         }
 
@@ -37,9 +35,9 @@ namespace IrsMonkeyApi.Models.DAL
                 var newMemberLogin = _context.SaveChanges();
                 return newMemberLogin > 0 ? memberLogin : null;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception(e.ToString());
+                throw;
             }
         }
     }

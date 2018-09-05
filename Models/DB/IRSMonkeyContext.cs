@@ -400,18 +400,7 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.Property(e => e.FormId).HasColumnName("FormID");
 
-                entity.Property(e => e.Ip)
-                    .HasColumnName("IP")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.MemberId).HasColumnName("MemberID");
-
-                entity.Property(e => e.MembershipTypeId).HasColumnName("MembershipTypeID");
-
-                entity.Property(e => e.StatusId).HasColumnName("StatusID");
-
-                entity.Property(e => e.UserAgentString).IsUnicode(false);
 
                 entity.HasOne(d => d.Form)
                     .WithMany(p => p.FormSubmitted)
@@ -422,6 +411,11 @@ namespace IrsMonkeyApi.Models.DB
                     .WithMany(p => p.FormSubmitted)
                     .HasForeignKey(d => d.MemberId)
                     .HasConstraintName("FK_FormSubmitted_Member");
+
+                entity.HasOne(d => d.WizarStep)
+                    .WithMany(p => p.FormSubmitted)
+                    .HasForeignKey(d => d.WizarStepId)
+                    .HasConstraintName("FormSubmitted_WizardStep_WizardStepID_fk");
             });
 
             modelBuilder.Entity<FormSubmittedAnswer>(entity =>

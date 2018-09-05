@@ -8,6 +8,7 @@ namespace IrsMonkeyApi.Models.DB
         public WizardStep()
         {
             FormQuestion = new HashSet<FormQuestion>();
+            FormSubmitted = new HashSet<FormSubmitted>();
         }
 
         public int WizardStepId { get; set; }
@@ -20,5 +21,6 @@ namespace IrsMonkeyApi.Models.DB
 
         public Wizard Wizard { get; set; }
         public ICollection<FormQuestion> FormQuestion { get; set; }
+        public ICollection<FormSubmitted> FormSubmitted { get; set; }
     }
 }

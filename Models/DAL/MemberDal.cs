@@ -49,9 +49,9 @@ namespace IrsMonkeyApi.Models.DAL
                 var updatedMember = _context.SaveChanges();
                 return updatedMember > 0 ? member : null;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new Exception(e.ToString());
+                throw;
             }
         }
     }
