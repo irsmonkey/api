@@ -7,6 +7,7 @@ using IrsMonkeyApi.Models.DAL;
 using IrsMonkeyApi.Models.DB;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using AutoMapper;
 
 namespace IrsMonkeyApi
 {
@@ -32,6 +33,7 @@ namespace IrsMonkeyApi
             services.AddScoped<IFormDal, FormDal>();
             services.AddScoped<IResolutionDal, ResolutionDal>();
             services.AddScoped<IGeoLocationDal, GeoLocationDal>();
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

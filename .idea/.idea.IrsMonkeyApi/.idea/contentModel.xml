@@ -4,6 +4,9 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
+      <e p="automapper" t="Include">
+        <e p="AutomapperProfile.cs" t="Include" />
+      </e>
       <e p="Bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
         <e p="FormController.cs" t="Include" />
@@ -82,7 +85,9 @@
           <e p="Wizard.cs" t="Include" />
           <e p="WizardStep.cs" t="Include" />
         </e>
-        <e p="Dto" t="Include" />
+        <e p="Dto" t="Include">
+          <e p="MemberLoginDto.cs" t="Include" />
+        </e>
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">

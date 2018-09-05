@@ -40,5 +40,18 @@ namespace IrsMonkeyApi.Models.DAL
                 throw;
             }
         }
+
+        public MemberLogin GetMemberLogin(Guid id)
+        {
+            try
+            {
+                var memberLogin = _context.MemberLogin.Find(id);
+                return memberLogin;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
