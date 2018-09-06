@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using AutoMapper;
 using IrsMonkeyApi.Models.DAL;
+using IrsMonkeyApi.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IrsMonkeyApi.Controllers
@@ -8,10 +11,12 @@ namespace IrsMonkeyApi.Controllers
     public class ResolutionController : Controller
     {
         private readonly IResolutionDal _dal;
+        private readonly IMapper _mapper;
 
-        public ResolutionController(IResolutionDal dal)
+        public ResolutionController(IResolutionDal dal, IMapper mapper)
         {
             _dal = dal;
+            _mapper = mapper;
         }
         
         [Route("GetAllResolutions"), HttpGet]
@@ -19,8 +24,20 @@ namespace IrsMonkeyApi.Controllers
         {
             try
             {
+                var resolutionsDto = new List<ResolutionDto>();
                 var resolutions = _dal.GetAllResolutions();
-                return Ok(resolutions);
+                foreach (var resolution in resolutions)
+                {
+                    var resolutionForPage = new ResolutionDto()
+                    {
+                        Resolution1 = resolution.Resolution1,
+                        FormResolution = resolution.FormResolution,
+                        Wizard =  resolution.Wizard
+                    };
+                    resolutionsDto.Add(resolutionForPage);
+                    
+                }
+                return Ok(resolutionsDto);
             }
             catch (Exception e)
             {
