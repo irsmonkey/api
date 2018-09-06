@@ -33,5 +33,19 @@ namespace IrsMonkeyApi.Controllers
                 return BadRequest(e);
             }
         }
+
+        [Route("GetFormResolutionSubmitted/{id}"), HttpGet]
+        public IActionResult GetForms(Guid id)
+        {
+            try
+            {
+                var returnedForms = _dal.getForm(id);
+                return Ok(returnedForms);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
     }
 }
