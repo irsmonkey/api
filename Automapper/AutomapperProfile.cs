@@ -10,6 +10,8 @@ namespace IrsMonkeyApi.Automapper
         {
             CreateMap<MemberLogin, MemberLoginDto>()
                 .ReverseMap();
+            CreateMap<FormSubmitted, FormSubmittedDto>()
+                .ReverseMap();
         }
     }
 }

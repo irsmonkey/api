@@ -10,6 +10,7 @@
       <e p="Bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
         <e p="FormController.cs" t="Include" />
+        <e p="FormSubmittedController.cs" t="Include" />
         <e p="GeoLocationController.cs" t="Include" />
         <e p="MemberController.cs" t="Include" />
         <e p="MemberLoginController.cs" t="Include" />
@@ -19,8 +20,11 @@
       <e p="Models" t="Include">
         <e p="DAL" t="Include">
           <e p="FormDal.cs" t="Include" />
+          <e p="FormSubmittedDal.cs" t="Include" />
           <e p="GeoLocationDal.cs" t="Include" />
           <e p="IFormDal.cs" t="Include" />
+          <e p="IFormSubmittedAnswerDal.cs" t="Include" />
+          <e p="IFormSubmittedDal.cs" t="Include" />
           <e p="iGeoLocationDal.cs" t="Include" />
           <e p="IMemberDal.cs" t="Include" />
           <e p="IMemberLoginDal.cs" t="Include" />
@@ -86,6 +90,7 @@
           <e p="WizardStep.cs" t="Include" />
         </e>
         <e p="Dto" t="Include">
+          <e p="FormSubmittedDto.cs" t="Include" />
           <e p="MemberLoginDto.cs" t="Include" />
           <e p="ResolutionDto.cs" t="Include" />
         </e>

@@ -33,6 +33,7 @@ namespace IrsMonkeyApi
             services.AddScoped<IFormDal, FormDal>();
             services.AddScoped<IResolutionDal, ResolutionDal>();
             services.AddScoped<IGeoLocationDal, GeoLocationDal>();
+            services.AddScoped<IFormSubmittedDal, FormSubmittedDal>();
             services.AddAutoMapper();
         }
 
