@@ -26,7 +26,7 @@ namespace IrsMonkeyApi.Models.DAL
             }
         }
 
-        public Member SaveMember(Member member)
+        public Member CreateMember(Member member)
         {
             try
             {

@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using IrsMonkeyApi.Models.DB;
+using IrsMonkeyApi.Models.Dto;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace IrsMonkeyApi.Models.DAL
 {
@@ -27,17 +29,42 @@ namespace IrsMonkeyApi.Models.DAL
             }
         }
 
-        public MemberLogin AddMember(MemberLogin memberLogin)
+        public MemberLogin CreateMemberLogin(MemberLoginDto memberLogin)
         {
-            try
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                _context.Add(memberLogin);
-                var newMemberLogin = _context.SaveChanges();
-                return newMemberLogin > 0 ? memberLogin : null;
-            }
-            catch (Exception)
-            {
-                throw;
+                try
+                {
+                    var memberShip = new MembershipType()
+                    {
+                        MembershipTypeName = "Individual"
+                    };
+                    var newMember = new Member
+                    {
+                        FirstName = memberLogin.FirstName,
+                        LastName = memberLogin.LastName,
+                        SignUpDate = DateTime.Now,
+                        Email = memberLogin.Username,
+                        MembershipType = memberShip
+                    };
+                    var createdMember = _context.Member.Add(newMember);
+                    var savedMember = _context.SaveChanges();
+                    
+                    var newMemberLogin = new MemberLogin
+                    {
+                        Username = memberLogin.Username,
+                        Password = memberLogin.Password,
+                        CreatedAt = DateTime.Now
+                    };
+                    _context.MemberLogin.Add(newMemberLogin);
+                    var createdMemberLogin = _context.SaveChanges();
+                    transaction.Commit();
+                    return createdMemberLogin > 0 ? newMemberLogin : null;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
 

@@ -706,6 +706,10 @@ namespace IrsMonkeyApi.Models.DB
 
             modelBuilder.Entity<Member>(entity =>
             {
+                entity.HasIndex(e => e.Email)
+                    .HasName("Member_Email_uindex")
+                    .IsUnique();
+
                 entity.Property(e => e.MemberId)
                     .HasColumnName("MemberID")
                     .HasDefaultValueSql("(newsequentialid())");
@@ -756,7 +760,6 @@ namespace IrsMonkeyApi.Models.DB
                 entity.Property(e => e.MembershipTypeId).HasColumnName("MembershipTypeID");
 
                 entity.Property(e => e.Phone)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -830,6 +833,10 @@ namespace IrsMonkeyApi.Models.DB
             {
                 entity.HasIndex(e => e.Id)
                     .HasName("MemberLogin_id_uindex")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Username)
+                    .HasName("MemberLogin_username_uindex")
                     .IsUnique();
 
                 entity.Property(e => e.Id)

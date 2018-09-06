@@ -13,11 +13,13 @@ namespace IrsMonkeyApi.Controllers
     public class MemberLoginController : Controller
     {
         private readonly IMemberLoginDal _dal;
+        private readonly IMemberDal _memberDal;
         private readonly IMapper _mapper;
 
         public MemberLoginController(IMemberLoginDal dal, IMemberDal memberDal, IMapper mapper)
         {
             _dal = dal;
+            _memberDal = memberDal;
             _mapper = mapper;
         }
 
@@ -28,7 +30,7 @@ namespace IrsMonkeyApi.Controllers
             var memberLoginContract = _mapper.Map<MemberLoginDto>(memberLogin);
             return Ok(memberLoginContract);
         }
-        
+
         [HttpPost, Route("ValidateMember")]
         public ActionResult Post([FromBody] MemberLogin member)
         {
@@ -43,13 +45,14 @@ namespace IrsMonkeyApi.Controllers
             }
         }
 
-        [HttpPost, Route("AddMember")]
-        public ActionResult Add([FromBody] MemberLogin memberLogin)
+        [HttpPost, Route("AddMemberLogin")]
+        public ActionResult Add([FromBody] MemberLoginDto memberLogin)
         {
-            var newMemberLogin = _dal.AddMember(memberLogin);
             try
             {
-                return memberLogin != null ? (ActionResult) Accepted(newMemberLogin) : BadRequest("Unable to add");
+                var newMember = _dal.CreateMemberLogin(memberLogin);
+                var memberLoginContract = _mapper.Map<MemberLoginDto>(newMember);
+                return memberLogin != null ? (ActionResult) Accepted(memberLoginContract) : BadRequest("Unable to add");
             }
             catch (Exception e)
             {

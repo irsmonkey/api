@@ -34,7 +34,7 @@ namespace IrsMonkeyApi.Controllers
         {
             try
             {
-                var savedMember = _dal.SaveMember(member);
+                var savedMember = _dal.CreateMember(member);
                 return savedMember != null
                     ? (IActionResult) Accepted(savedMember)
                     : BadRequest("Data could not be saved");
