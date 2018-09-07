@@ -8,6 +8,7 @@ namespace IrsMonkeyApi.Models.DAL
     public interface IFormSubmittedDal
     {
         FormSubmittedDto SaveForm(FormSubmittedDto formSubmittedDto);
-        List<FormSubmitted> getForm(Guid memberId);
+        List<FormSubmitted> GetForm(Guid memberId);
+        int GetFormPercentage(int WizardStep, int Wizard);
     }
 }

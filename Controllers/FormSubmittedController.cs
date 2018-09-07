@@ -39,8 +39,21 @@ namespace IrsMonkeyApi.Controllers
         {
             try
             {
-                var returnedForms = _dal.getForm(id);
+                var returnedForms = _dal.GetForm(id);
                 return Ok(returnedForms);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
+        [Route("GetFormPercentage/{id}"), HttpGet]
+        public IActionResult GetFormsPercentage(Guid memberId)
+        {
+            try
+            {
+                return Ok();
             }
             catch (Exception e)
             {

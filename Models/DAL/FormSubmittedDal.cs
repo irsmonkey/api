@@ -53,7 +53,7 @@ namespace IrsMonkeyApi.Models.DAL
             }
         }
 
-        public List<FormSubmitted> getForm(Guid memberId)
+        public List<FormSubmitted> GetForm(Guid memberId)
         {
             try
             {
@@ -68,6 +68,11 @@ namespace IrsMonkeyApi.Models.DAL
             {
                 throw;
             }
+        }
+
+        public int GetFormPercentage(int WizardStep, int Wizard)
+        {
+            throw new NotImplementedException();
         }
     }
 }
