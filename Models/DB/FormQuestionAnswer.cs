@@ -13,6 +13,8 @@ namespace IrsMonkeyApi.Models.DB
         public string Image { get; set; }
         public string Cssclass { get; set; }
         public string Icon { get; set; }
+        public string Label { get; set; }
+        public string HtmlControlId { get; set; }
 
         public FormQuestion FormQuestion { get; set; }
     }

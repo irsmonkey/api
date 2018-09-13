@@ -33,6 +33,11 @@ namespace IrsMonkeyApi.Models.DB
         public string Cssclass { get; set; }
         public bool? GroupAsOther { get; set; }
         public string Icon { get; set; }
+        public string HtmlControlId { get; set; }
+        public string HtmlControlName { get; set; }
+        public bool? IsNavigationControl { get; set; }
+        public string TriggerFunction { get; set; }
+        public int? FieldValidator { get; set; }
 
         public Form Form { get; set; }
         public FormControlType FormControlType { get; set; }

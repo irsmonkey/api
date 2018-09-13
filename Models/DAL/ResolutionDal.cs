@@ -23,21 +23,12 @@ namespace IrsMonkeyApi.Models.DAL
                 using (_context)
                 {
                     var resolutions = _context.Resolution
-                        .Include(w => w.Wizard)
-                        .ThenInclude(f=> f.Form)
-                        .ThenInclude(q => q.FormQuestion)
-                        .ThenInclude(qa => qa.FormQuestionAnswer)
-                        .Where(r => r.IsDeleted == false && r.FormResolution.Count == 0)
-                        .ToList();
-                    
-                    var resolutionsWithOutWizard = _context.Resolution.Where(r => r.IsDeleted == false && r.Wizard.Count == 0)
                         .Include(fr => fr.FormResolution)
                         .ThenInclude(f=> f.Form)
                         .ThenInclude(q => q.FormQuestion)
                         .ThenInclude(qa => qa.FormQuestionAnswer)
+                        .Where(r => r.IsDeleted == false)
                         .ToList();
-                    
-                    resolutions.AddRange(resolutionsWithOutWizard);
                     
                     return resolutions;
                 }

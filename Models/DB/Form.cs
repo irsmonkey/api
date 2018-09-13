@@ -24,6 +24,8 @@ namespace IrsMonkeyApi.Models.DB
         public string Pdffile { get; set; }
         public string Descripcion { get; set; }
         public int? FormTypeId { get; set; }
+        public string MotivationalMessage { get; set; }
+        public string FactMessage { get; set; }
 
         public FormType FormType { get; set; }
         public ICollection<FormQuestion> FormQuestion { get; set; }

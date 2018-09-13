@@ -198,6 +198,8 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.Property(e => e.Descripcion).HasColumnType("text");
 
+                entity.Property(e => e.FactMessage).HasColumnType("text");
+
                 entity.Property(e => e.FormCode)
                     .HasMaxLength(100)
                     .IsUnicode(false);
@@ -207,6 +209,8 @@ namespace IrsMonkeyApi.Models.DB
                     .IsUnicode(false);
 
                 entity.Property(e => e.FormTypeId).HasColumnName("FormTypeID");
+
+                entity.Property(e => e.MotivationalMessage).HasColumnType("text");
 
                 entity.Property(e => e.Pdffile)
                     .HasColumnName("PDFFile")
@@ -262,6 +266,8 @@ namespace IrsMonkeyApi.Models.DB
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
+                entity.Property(e => e.FieldValidator).HasColumnName("fieldValidator");
+
                 entity.Property(e => e.FormControlTypeId).HasColumnName("FormControlTypeID");
 
                 entity.Property(e => e.FormId).HasColumnName("FormID");
@@ -270,6 +276,16 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.Property(e => e.FormSectionId).HasColumnName("FormSectionID");
 
+                entity.Property(e => e.HtmlControlId)
+                    .HasColumnName("htmlControlId")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.HtmlControlName)
+                    .HasColumnName("htmlControlName")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Icon)
                     .HasMaxLength(150)
                     .IsUnicode(false);
@@ -277,6 +293,8 @@ namespace IrsMonkeyApi.Models.DB
                 entity.Property(e => e.Image)
                     .HasMaxLength(150)
                     .IsUnicode(false);
+
+                entity.Property(e => e.IsNavigationControl).HasColumnName("isNavigationControl");
 
                 entity.Property(e => e.Label)
                     .HasMaxLength(1000)
@@ -305,6 +323,11 @@ namespace IrsMonkeyApi.Models.DB
                     .HasColumnType("decimal(10, 2)");
 
                 entity.Property(e => e.Tip).IsUnicode(false);
+
+                entity.Property(e => e.TriggerFunction)
+                    .HasColumnName("triggerFunction")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.WizardStepId).HasColumnName("WizardStepID");
 
@@ -349,12 +372,20 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.Property(e => e.FormQuestionId).HasColumnName("FormQuestionID");
 
+                entity.Property(e => e.HtmlControlId)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Icon)
                     .HasMaxLength(150)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Image)
                     .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Label)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.PdfcontrolId)
@@ -400,12 +431,19 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.Property(e => e.FormId).HasColumnName("FormID");
 
+                entity.Property(e => e.FormSubmitedStatusId).HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.MemberId).HasColumnName("MemberID");
 
                 entity.HasOne(d => d.Form)
                     .WithMany(p => p.FormSubmitted)
                     .HasForeignKey(d => d.FormId)
                     .HasConstraintName("FK_FormSubmitted_Form");
+
+                entity.HasOne(d => d.FormSubmitedStatus)
+                    .WithMany(p => p.FormSubmitted)
+                    .HasForeignKey(d => d.FormSubmitedStatusId)
+                    .HasConstraintName("FormSubmitted_FormSubmittedStatus_FormSubmittedStatusID_fk");
 
                 entity.HasOne(d => d.Member)
                     .WithMany(p => p.FormSubmitted)
