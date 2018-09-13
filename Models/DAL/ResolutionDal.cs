@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using IrsMonkeyApi.Models.DB;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace IrsMonkeyApi.Models.DAL
 {
@@ -22,13 +23,22 @@ namespace IrsMonkeyApi.Models.DAL
             {
                 using (_context)
                 {
+
                     var resolutions = _context.Resolution
+                        .Join(_context.FormResolution
+                            , resolution => resolution.ResolutionId
+                            , formResolution => formResolution.ResolutionId
+                            , (resolution, formResolution) => new {resolution, formResolution})
+                        .Join(_context.Form, 
+
+                    /*var resolutions = _context.Resolution
                         .Include(fr => fr.FormResolution)
-                        .ThenInclude(f=> f.Form)
+                        .ThenInclude(f => f.Form)
                         .ThenInclude(q => q.FormQuestion)
+                        .ThenInclude(ws => ws.WizardStepId)
                         .ThenInclude(qa => qa.FormQuestionAnswer)
                         .Where(r => r.IsDeleted == false)
-                        .ToList();
+                        .ToList();*/
                     
                     return resolutions;
                 }
