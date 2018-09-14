@@ -24,20 +24,8 @@ namespace IrsMonkeyApi.Controllers
         {
             try
             {
-                var resolutionsDto = new List<ResolutionDto>();
                 var resolutions = _dal.GetAllResolutions();
-                foreach (var resolution in resolutions)
-                {
-                    var resolutionForPage = new ResolutionDto()
-                    {
-                        Resolution1 = resolution.Resolution1,
-                        FormResolution = resolution.FormResolution,
-                        Wizard =  resolution.Wizard
-                    };
-                    resolutionsDto.Add(resolutionForPage);
-                    
-                }
-                return Ok(resolutionsDto);
+                return Ok(resolutions);
             }
             catch (Exception e)
             {

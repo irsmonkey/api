@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace IrsMonkeyApi.Controllers
 {
     [Route("api/[controller]")]
-    public class MemberController : Controller
+    [ApiController]
+    public class MemberController : ControllerBase
     {
         private readonly IMemberDal _dal;
 
@@ -36,7 +37,7 @@ namespace IrsMonkeyApi.Controllers
             {
                 var savedMember = _dal.CreateMember(member);
                 return savedMember != null
-                    ? (IActionResult) Accepted(savedMember)
+                    ? (IActionResult) Created("Member Created", savedMember)
                     : BadRequest("Data could not be saved");
             }
             catch (Exception e)
