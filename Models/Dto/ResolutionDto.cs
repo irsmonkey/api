@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using IrsMonkeyApi.Models.DB;
+using Microsoft.CodeAnalysis;
 
 namespace IrsMonkeyApi.Models.Dto
 {
     public class ResolutionDto
     {
+        public int ResolutionId { get; set; }
         public string Resolution1 { get; set; }
-        public ICollection<FormResolution> FormResolution { get; set; }
-        public ICollection<ResolutionLetter> ResolutionLetter { get; set; }
-        public ICollection<Wizard> Wizard { get; set; }
+        public int FormId { get; set; }
+        public string FormDescription { get; set; }
+        public string FormName { get; set; }
+        public IEnumerable<FormQuestion> QuestionId { get; set; }
     }
 }
