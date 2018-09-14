@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9c30e2f8-6f3b-4b03-935b-0ab0ec3aa10e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IrsMonkeyApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DAL/ResolutionDal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DAL/ResolutionDal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.1/IrsMonkeyApi.pdb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +15,7 @@
     <session id="840708611">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.18" value="1" />
@@ -66,6 +61,7 @@
       </usages-collector>
       <usages-collector id="statistics.kubernetes.usages" />
       <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
@@ -73,7 +69,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/DAL/ResolutionDal.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
+            <state relative-caret-position="465">
               <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
               <folding>
                 <marker date="1536868952000" expanded="true" signature="6:179" ph="..." />
@@ -380,7 +376,7 @@
       <workItem from="1535991147145" duration="26605000" />
       <workItem from="1536174417074" duration="38066000" />
       <workItem from="1536777445354" duration="2164000" />
-      <workItem from="1536861357810" duration="3755000" />
+      <workItem from="1536861357810" duration="3872000" />
     </task>
     <task id="LOCAL-00001" summary="new query">
       <created>1535500075715</created>
@@ -564,11 +560,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536861551939</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="new models context">
+      <created>1536871228145</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1536871228145</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114834000" />
+    <option name="totallyTimeSpent" value="114951000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -587,7 +590,7 @@
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32872254" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32872254" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869812" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1165,7 +1168,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/DAL/ResolutionDal.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
+        <state relative-caret-position="465">
           <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
           <folding>
             <marker date="1536868952000" expanded="true" signature="6:179" ph="..." />
