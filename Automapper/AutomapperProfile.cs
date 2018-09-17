@@ -12,6 +12,10 @@ namespace IrsMonkeyApi.Automapper
                 .ReverseMap();
             CreateMap<FormSubmitted, FormSubmittedDto>()
                 .ReverseMap();
+            CreateMap<FormQuestion, FormQuestionDto>()
+                .ReverseMap();
+            CreateMap<Resolution, ResolutionDto>()
+                .ReverseMap();
         }
     }
 }
