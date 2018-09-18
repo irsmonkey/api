@@ -11,7 +11,7 @@ namespace IrsMonkeyApi.Models.Dto
         public int FormId { get; set; }
         public string FormDescription { get; set; }
         public string FormName { get; set; }
-        public IEnumerable<FormQuestion> FormQuestions { get; set; }
-        public IEnumerable<FormQuestionAnswer> FormQuestionAnswers { get; set; }
+        public List<FormQuestionDto> FormQuestions { get; set; }
+        public FormQuestionAnswer FormQuestionAnswers { get; set; }
     }
 }

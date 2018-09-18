@@ -8,7 +8,7 @@ namespace IrsMonkeyApi.Models.DAL
 {
     public interface IResolutionDal
     {
-        IQueryable<ResolutionDto> GetAllResolutions();
+        List<ResolutionDto> GetAllResolutions();
         Resolution GetAResolution();
     }
 }

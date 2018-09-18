@@ -5,6 +5,7 @@ using AutoMapper;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
 using AutoMapper;
+using Microsoft.AspNetCore.Razor.Language.Intermediate;
 using Microsoft.EntityFrameworkCore;
 
 namespace IrsMonkeyApi.Models.DAL
@@ -20,45 +21,10 @@ namespace IrsMonkeyApi.Models.DAL
             _mapper = mapper;
         }
 
-        public IQueryable<ResolutionDto> GetAllResolutions()
+        public List<ResolutionDto> GetAllResolutions()
         {
             try
             {
-
-                var resolutions = _context.Resolution.FromSql("select " +
-                                                              "r.Resolution" +
-                                                              ", f.FormID" +
-                                                              ", f.FormName" +
-                                                              ", Q2.Label" +
-                                                              ", Q2.AnswerEncrypted" +
-                                                              ", q2.CSSClass" +
-                                                              ", q2.Icon" +
-                                                              ", q2.htmlControlId" +
-                                                              ", q2.htmlControlName" +
-                                                              ", Answer.CSSClass" +
-                                                              ", Answer.Answer" +
-                                                              ", Answer.Icon" +
-                                                              ", s2.WizardStepID" +
-                                                              ", s2.Header" +
-                                                              ", s2.MotivationalMessage" +
-                                                              ", s2.FactsMessage" +
-                                                              ", w.WizardID" +
-                                                              "from Resolution r " +
-                                                              "inner join FormResolution FR on r.ResolutionID = FR.ResolutionID " +
-                                                              "inner join Form F on FR.FormID = F.FormID " +
-                                                              "inner join FormQuestion Q2 on F.FormID = Q2.FormID " +
-                                                              "left join FormQuestionAnswer Answer on Q2.FormQuestionID = Answer.FormQuestionID " +
-                                                              "inner join WizardStep S2 on Q2.WizardStepID = S2.WizardStepID " +
-                                                              "inner Join Wizard W on S2.WizardID = W.WizardID " +
-                                                              "order by F.FormID, s2.WizardStepID")
-                    .Select( r =>
-                    new ResolutionDto()
-                    {
-                        Resolution1 = r.Resolution1,
-                        ResolutionId = r.ResolutionId,
-                    }
-                    );
-                /*var questionaries = new List<ResolutionDto>();
                 var resolutions = (from resolution in _context.Resolution
                     join formResolution in _context.FormResolution
                         on resolution.ResolutionId equals formResolution.ResolutionId
@@ -71,22 +37,54 @@ namespace IrsMonkeyApi.Models.DAL
                         ResolutionId = resolution.ResolutionId,
                         FormId = form.FormId,
                         FormDescription = form.Descripcion,
-                        FormName = form.FormName
-                    });
+                        FormName = form.FormName,
+                    }).ToList();
 
-                foreach (var resol in resolutions)
+                foreach (var resolutionItem in resolutions)
                 {
-                    questionaries.Add(resol);
-                    var questions =
-                        from quest in _context.FormQuestion.Where(x => x.FormId == resol.FormId).Select(s => s.FormId);
+                    var formQuestion = (from formQuestionData in _context.FormQuestion
+                        where formQuestionData.FormId == resolutionItem.FormId
+                        orderby formQuestionData.WizardStepId, formQuestionData.Ordering
+                        select new FormQuestionDto()
+                        {
+                            FormQuestionId = formQuestionData.FormQuestionId,
+                            Ordering = formQuestionData.Ordering,
+                            Label = formQuestionData.Label,
+                            ControlId = formQuestionData.ControlId,
+                            Image = formQuestionData.Image,
+                            Required = formQuestionData.Required,
+                            CssClass = formQuestionData.Cssclass,
+                            Icon = formQuestionData.Icon,
+                            HtmlControlId = formQuestionData.HtmlControlId,
+                            HtmlControlName = formQuestionData.HtmlControlName,
+                            WizardStep = formQuestionData.WizardStep
+                        }).ToList();
 
-                }*/
+                    foreach (var formQuestionItem in formQuestion)
+                    {
+                        
+                        var formQuestionAnswer = (from formQuestionAnswerData in _context.FormQuestionAnswer
+                                where formQuestionAnswerData.FormQuestionId == formQuestionItem.FormQuestionId
+                                      select new FormQuestionAnswerDto()
+                                      {
+                                          FormQuestionId = formQuestionAnswerData.FormQuestionId,
+                                          FormQuestionAnswerId = formQuestionAnswerData.FormQuestionAnswerId,
+                                          Answer = formQuestionAnswerData.Answer,
+                                          Icon = formQuestionAnswerData.Icon
+                                      }).ToList();
+                        formQuestionItem.Answers = formQuestionAnswer;
+                    }
+                    
+                    resolutionItem.FormQuestions = formQuestion;
+                }
 
+                _context.SaveChanges();
+                
                 return resolutions;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw new Exception(e.Message);
             }
         }
 

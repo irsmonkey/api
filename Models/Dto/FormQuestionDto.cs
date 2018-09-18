@@ -1,16 +1,17 @@
 using System.Collections.Generic;
+using IrsMonkeyApi.Models.DB;
 
 namespace IrsMonkeyApi.Models.Dto
 {
     public class FormQuestionDto
     {
-        public int QuestionId { get; set; }
         public int? Ordering { get; set; }
         public string Label { get; set; }
         public string ControlId { get; set; }
         public string Image { get; set; }
         public bool? Required { get; set; }
-        public int? WizardStepId { get; set; }
+        public int WizardStepId { get; set; }
+        public WizardStep WizardStep { get; set; }
         public string CssClass { get; set; }
         public string Icon { get; set; }
         public string HtmlControlId { get; set; }
