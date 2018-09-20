@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using AutoMapper;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
-using AutoMapper;
-using Microsoft.AspNetCore.Razor.Language.Intermediate;
-using Microsoft.EntityFrameworkCore;
+using Remotion.Linq.Clauses;
 
 namespace IrsMonkeyApi.Models.DAL
 {
@@ -42,41 +41,60 @@ namespace IrsMonkeyApi.Models.DAL
 
                 foreach (var resolutionItem in resolutions)
                 {
-                    var formQuestion = (from formQuestionData in _context.FormQuestion
-                        where formQuestionData.FormId == resolutionItem.FormId
-                        orderby formQuestionData.WizardStepId, formQuestionData.Ordering
-                        select new FormQuestionDto()
-                        {
-                            FormQuestionId = formQuestionData.FormQuestionId,
-                            Ordering = formQuestionData.Ordering,
-                            Label = formQuestionData.Label,
-                            ControlId = formQuestionData.ControlId,
-                            Image = formQuestionData.Image,
-                            Required = formQuestionData.Required,
-                            CssClass = formQuestionData.Cssclass,
-                            Icon = formQuestionData.Icon,
-                            HtmlControlId = formQuestionData.HtmlControlId,
-                            HtmlControlName = formQuestionData.HtmlControlName,
-                            WizardStep = formQuestionData.WizardStep
-                        }).ToList();
-
-                    foreach (var formQuestionItem in formQuestion)
-                    {
-                        
-                        var formQuestionAnswer = (from formQuestionAnswerData in _context.FormQuestionAnswer
-                                where formQuestionAnswerData.FormQuestionId == formQuestionItem.FormQuestionId
-                                      select new FormQuestionAnswerDto()
-                                      {
-                                          FormQuestionId = formQuestionAnswerData.FormQuestionId,
-                                          FormQuestionAnswerId = formQuestionAnswerData.FormQuestionAnswerId,
-                                          Answer = formQuestionAnswerData.Answer,
-                                          Icon = formQuestionAnswerData.Icon
-                                      }).ToList();
-                        formQuestionItem.Answers = formQuestionAnswer;
-                    }
+                    var wizardStep = (from wizardStepData in _context.WizardStep
+                            where wizardStepData.FormId == resolutionItem.FormId
+                            select new WizardStepDto()
+                            {
+                                WizardStepId = wizardStepData.WizardStepId,
+                                WizardId = wizardStepData.WizardId,
+                                Order = wizardStepData.Order,
+                                Header = wizardStepData.Header,
+                                MotivationalMessage = wizardStepData.MotivationalMessage,
+                                FactMessage = wizardStepData.FactsMessage
+                            }
+                        ).ToList();
                     
-                    resolutionItem.FormQuestions = formQuestion;
+                    foreach (var wzrstp in wizardStep)
+                    {
+                        var formQuestion = (from formQuestionData in _context.FormQuestion
+                            where formQuestionData.FormId == resolutionItem.FormId 
+                                  && formQuestionData.WizardStepId == wzrstp.WizardStepId
+                            orderby formQuestionData.WizardStepId, formQuestionData.Ordering
+                            select new FormQuestionDto()
+                            {
+                                FormQuestionId = formQuestionData.FormQuestionId,
+                                Ordering = formQuestionData.Ordering,
+                                Label = formQuestionData.Label,
+                                ControlId = formQuestionData.ControlId,
+                                Image = formQuestionData.Image,
+                                Required = formQuestionData.Required,
+                                CssClass = formQuestionData.Cssclass,
+                                Icon = formQuestionData.Icon,
+                                HtmlControlId = formQuestionData.HtmlControlId,
+                                HtmlControlName = formQuestionData.HtmlControlName,
+                                WizardStepId = formQuestionData.WizardStepId
+                            }).ToList();
+
+                        foreach (var frmQstn in formQuestion)
+                        {
+                            var questionAnswer = (from formQuestionAnswerData in _context.FormQuestionAnswer
+                                where formQuestionAnswerData.FormQuestionId == frmQstn.FormQuestionId
+                                select new FormQuestionAnswerDto()
+                                {
+                                    FormQuestionId = formQuestionAnswerData.FormQuestionId,
+                                    FormQuestionAnswerId = formQuestionAnswerData.FormQuestionAnswerId,
+                                    Answer = formQuestionAnswerData.Answer,
+                                    Icon = formQuestionAnswerData.Icon
+                                }).ToList();
+                            frmQstn.Answers = questionAnswer;
+                        }
+                        
+                        wzrstp.FormQuestions = formQuestion;
+                    }
+
+                    resolutionItem.WizardStep = wizardStep;
                 }
+
 
                 _context.SaveChanges();
                 

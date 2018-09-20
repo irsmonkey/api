@@ -11,6 +11,7 @@ namespace IrsMonkeyApi.Models.DB
             FormResolution = new HashSet<FormResolution>();
             FormSubmitted = new HashSet<FormSubmitted>();
             Wizard = new HashSet<Wizard>();
+            WizardStep = new HashSet<WizardStep>();
         }
 
         public int FormId { get; set; }
@@ -32,5 +33,6 @@ namespace IrsMonkeyApi.Models.DB
         public ICollection<FormResolution> FormResolution { get; set; }
         public ICollection<FormSubmitted> FormSubmitted { get; set; }
         public ICollection<Wizard> Wizard { get; set; }
+        public ICollection<WizardStep> WizardStep { get; set; }
     }
 }

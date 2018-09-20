@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using IrsMonkeyApi.Models.DB;
+
 namespace IrsMonkeyApi.Models.Dto
 {
     public class WizardStepDto
@@ -8,5 +11,6 @@ namespace IrsMonkeyApi.Models.Dto
         public string Header { get; set; }
         public string MotivationalMessage { get; set; }
         public string FactMessage { get; set; }
+        public List<FormQuestionDto> FormQuestions { get; set; }
     }
 }

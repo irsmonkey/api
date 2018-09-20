@@ -1448,6 +1448,11 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.Property(e => e.WizardId).HasColumnName("WizardID");
 
+                entity.HasOne(d => d.Form)
+                    .WithMany(p => p.WizardStep)
+                    .HasForeignKey(d => d.FormId)
+                    .HasConstraintName("WizardStep_Form_FormID_fk");
+
                 entity.HasOne(d => d.Wizard)
                     .WithMany(p => p.WizardStep)
                     .HasForeignKey(d => d.WizardId)

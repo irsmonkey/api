@@ -10,7 +10,7 @@ namespace IrsMonkeyApi.Models.Dto
         public string ControlId { get; set; }
         public string Image { get; set; }
         public bool? Required { get; set; }
-        public int WizardStepId { get; set; }
+        public int? WizardStepId { get; set; }
         public WizardStep WizardStep { get; set; }
         public string CssClass { get; set; }
         public string Icon { get; set; }

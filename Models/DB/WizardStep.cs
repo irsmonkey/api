@@ -18,7 +18,9 @@ namespace IrsMonkeyApi.Models.DB
         public string MotivationalMessage { get; set; }
         public string FactsMessage { get; set; }
         public string Footer { get; set; }
+        public int? FormId { get; set; }
 
+        public Form Form { get; set; }
         public Wizard Wizard { get; set; }
         public ICollection<FormQuestion> FormQuestion { get; set; }
         public ICollection<FormSubmitted> FormSubmitted { get; set; }
