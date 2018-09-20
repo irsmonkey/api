@@ -1,23 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using AutoMapper;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
-using Remotion.Linq.Clauses;
 
 namespace IrsMonkeyApi.Models.DAL
 {
     public class ResolutionDal : IResolutionDal
     {
         private readonly IRSMonkeyContext _context;
-        private readonly IMapper _mapper;
 
-        public ResolutionDal(IRSMonkeyContext context, IMapper mapper)
+        public ResolutionDal(IRSMonkeyContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
 
         public List<ResolutionDto> GetAllResolutions()

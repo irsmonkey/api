@@ -11640,28 +11640,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/gerardojaramillo/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Gerardo\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
+      "projectUniqueName": "C:\\Users\\Gerardo\\code\\irsmonkey\\MemberApi\\IrsMonkeyApi.csproj",
       "projectName": "IrsMonkeyApi",
-      "projectPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
-      "packagesPath": "/Users/gerardojaramillo/.nuget/packages/",
-      "outputPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/obj/",
+      "projectPath": "C:\\Users\\Gerardo\\code\\irsmonkey\\MemberApi\\IrsMonkeyApi.csproj",
+      "packagesPath": "C:\\Users\\Gerardo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gerardo\\code\\irsmonkey\\MemberApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/gerardojaramillo/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Gerardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
