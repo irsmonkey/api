@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMapper;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
+using Remotion.Linq.Parsing.Structure.IntermediateModel;
 
 namespace IrsMonkeyApi.Models.DAL
 {
@@ -20,81 +21,56 @@ namespace IrsMonkeyApi.Models.DAL
         {
             try
             {
-                var resolutions = (from resolution in _context.Resolution
+                var result = new List<ResolutionDto>();
+                var wizardList = new List<WizardDto>();
+                
+                var resolutions = from resolution in _context.Resolution
                     join formResolution in _context.FormResolution
                         on resolution.ResolutionId equals formResolution.ResolutionId
                     join form in _context.Form
                         on formResolution.FormId equals form.FormId
+                    join wizard in _context.Wizard
+                        on form.FormId equals wizard.FormId
+                    join formQuestion in _context.FormQuestion
+                        on form.FormId equals formQuestion.FormId
+                    join wizardStep in _context.WizardStep
+                        on formQuestion.WizardStepId equals wizardStep.WizardStepId
                     where form.FormTypeId == 2
-                    select new ResolutionDto()
-                    {
-                        Resolution1 = resolution.Resolution1,
-                        ResolutionId = resolution.ResolutionId,
-                        FormId = form.FormId,
-                        FormDescription = form.Descripcion,
-                        FormName = form.FormName,
-                    }).ToList();
+                    select new { resolution.ResolutionId, resolution.Resolution1, form.FormId, form.Descripcion, wizard.WizardId, formQuestion.FormQuestionId, formQuestion.Label, wizardStep.WizardStepId, wizardStep.MotivationalMessage, wizardStep.FactsMessage};
 
-                foreach (var resolutionItem in resolutions)
+                
+               
+                
+                foreach (var q in resolutions)
                 {
-                    var wizardStep = (from wizardStepData in _context.WizardStep
-                            where wizardStepData.FormId == resolutionItem.FormId
-                            select new WizardStepDto()
-                            {
-                                WizardStepId = wizardStepData.WizardStepId,
-                                WizardId = wizardStepData.WizardId,
-                                Order = wizardStepData.Order,
-                                Header = wizardStepData.Header,
-                                MotivationalMessage = wizardStepData.MotivationalMessage,
-                                FactMessage = wizardStepData.FactsMessage
-                            }
-                        ).ToList();
                     
-                    foreach (var wzrstp in wizardStep)
-                    {
-                        var formQuestion = (from formQuestionData in _context.FormQuestion
-                            where formQuestionData.FormId == resolutionItem.FormId 
-                                  && formQuestionData.WizardStepId == wzrstp.WizardStepId
-                            orderby formQuestionData.WizardStepId, formQuestionData.Ordering
-                            select new FormQuestionDto()
+
+                    wizardList.AddRange(
+                        q.resolution.Wizard
+                            .Select(w => new WizardDto
                             {
-                                FormQuestionId = formQuestionData.FormQuestionId,
-                                Ordering = formQuestionData.Ordering,
-                                Label = formQuestionData.Label,
-                                ControlId = formQuestionData.ControlId,
-                                Image = formQuestionData.Image,
-                                Required = formQuestionData.Required,
-                                CssClass = formQuestionData.Cssclass,
-                                Icon = formQuestionData.Icon,
-                                HtmlControlId = formQuestionData.HtmlControlId,
-                                HtmlControlName = formQuestionData.HtmlControlName,
-                                WizardStepId = formQuestionData.WizardStepId
-                            }).ToList();
+                                FormId = q.form.FormId, Header = w.Header, WizardId = w.WizardId
+                            }).Where(re => re.FormId == q.form.FormId));
 
-                        foreach (var frmQstn in formQuestion)
-                        {
-                            var questionAnswer = (from formQuestionAnswerData in _context.FormQuestionAnswer
-                                where formQuestionAnswerData.FormQuestionId == frmQstn.FormQuestionId
-                                select new FormQuestionAnswerDto()
-                                {
-                                    FormQuestionId = formQuestionAnswerData.FormQuestionId,
-                                    FormQuestionAnswerId = formQuestionAnswerData.FormQuestionAnswerId,
-                                    Answer = formQuestionAnswerData.Answer,
-                                    Icon = formQuestionAnswerData.Icon
-                                }).ToList();
-                            frmQstn.Answers = questionAnswer;
-                        }
-                        
-                        wzrstp.FormQuestions = formQuestion;
-                    }
+                    result.Add(new ResolutionDto
+                    {
+                        Resolution1 = q.resolution.Resolution1,
+                        ResolutionId = q.resolution.ResolutionId,
+                        FormDescription = q.form.Descripcion,
+                        FormId = q.form.FormId,
+                        FormName = q.form.FormName,
+                        Wizards = wizardList
+                    });
 
-                    resolutionItem.WizardStep = wizardStep;
+                    
+                    
                 }
 
 
-                _context.SaveChanges();
-                
-                return resolutions;
+
+
+
+                return result.ToList();
             }
             catch (Exception e)
             {
