@@ -23,7 +23,7 @@ namespace IrsMonkeyApi.Models.DAL
             {
                 var result = new List<ResolutionDto>();
                 var wizardList = new List<WizardDto>();
-                
+
                 var resolutions = from resolution in _context.Resolution
                     join formResolution in _context.FormResolution
                         on resolution.ResolutionId equals formResolution.ResolutionId
@@ -36,40 +36,27 @@ namespace IrsMonkeyApi.Models.DAL
                     join wizardStep in _context.WizardStep
                         on formQuestion.WizardStepId equals wizardStep.WizardStepId
                     where form.FormTypeId == 2
-                    select new { resolution.ResolutionId, resolution.Resolution1, form.FormId, form.Descripcion, wizard.WizardId, formQuestion.FormQuestionId, formQuestion.Label, wizardStep.WizardStepId, wizardStep.MotivationalMessage, wizardStep.FactsMessage};
-
-                
-               
-                
-                foreach (var q in resolutions)
-                {
-                    
-
-                    wizardList.AddRange(
-                        q.resolution.Wizard
-                            .Select(w => new WizardDto
-                            {
-                                FormId = q.form.FormId, Header = w.Header, WizardId = w.WizardId
-                            }).Where(re => re.FormId == q.form.FormId));
-
-                    result.Add(new ResolutionDto
+                    select new
                     {
-                        Resolution1 = q.resolution.Resolution1,
-                        ResolutionId = q.resolution.ResolutionId,
-                        FormDescription = q.form.Descripcion,
-                        FormId = q.form.FormId,
-                        FormName = q.form.FormName,
-                        Wizards = wizardList
-                    });
+                        resolution.ResolutionId, resolution.Resolution1, form.FormId, form.Descripcion, wizard.WizardId,
+                        formQuestion.FormQuestionId, formQuestion.Label, wizardStep.WizardStepId,
+                        wizardStep.MotivationalMessage, wizardStep.FactsMessage
+                    };
 
-                    
+                var uniqueResolutions = resolutions.GroupBy(res => res.ResolutionId).Select(grp => grp.ToList());
+
+                foreach (var r in uniqueResolutions)
+                {
+                    foreach (var r2 in r)
+                    {
+                        result.Add(new ResolutionDto()
+                        {
+                            ResolutionId = r2.ResolutionId
+                        });
+                    }
                     
                 }
-
-
-
-
-
+                
                 return result.ToList();
             }
             catch (Exception e)
