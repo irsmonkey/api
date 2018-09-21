@@ -90,6 +90,7 @@
           <e p="WizardStep.cs" t="Include" />
         </e>
         <e p="Dto" t="Include">
+          <e p="FormDto.cs" t="Include" />
           <e p="FormQuestionAnswerDto.cs" t="Include" />
           <e p="FormQuestionDto.cs" t="Include" />
           <e p="FormSubmittedDto.cs" t="Include" />

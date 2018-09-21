@@ -12,5 +12,6 @@ namespace IrsMonkeyApi.Models.Dto
         public string FormDescription { get; set; }
         public string FormName { get; set; }
         public List<WizardDto> Wizards { get; set; }
+        public List<FormDto> Forms { get; set; }
     }
-}
+}    

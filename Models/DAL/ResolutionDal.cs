@@ -23,6 +23,7 @@ namespace IrsMonkeyApi.Models.DAL
             try
             {
                 var result = new List<ResolutionDto>();
+                var formsList = new List<FormDto>();
                 var wizardList = new List<WizardDto>();
                 var questionList = new List<FormQuestionDto>();
                 var wizardStepList = new List<WizardStepDto>();
@@ -39,25 +40,44 @@ namespace IrsMonkeyApi.Models.DAL
                         on form.FormId equals formQuestion.FormId
                     join formQuestionAnswer in _context.FormQuestionAnswer
                         on formQuestion.FormQuestionId equals formQuestionAnswer.FormQuestionId
-                    join wizardStep in _context.WizardStep
-                        on formQuestion.WizardStepId equals wizardStep.WizardStepId
+                    /*join wizardStep in _context.WizardStep
+                        on formQuestion.WizardStepId equals wizardStep.WizardStepId*/
                     where form.FormTypeId == 2
                     select new
                     {
-                        resolution.ResolutionId, resolution.Resolution1, form.FormId, form.Descripcion, form.FormName,
-                        wizard.WizardId, wizard.Header, wizard.Footer, formQuestion.FormQuestionId, formQuestion.Label,
-                        wizardStep.WizardStepId, wizardStep.MotivationalMessage, wizardStep.FactsMessage
-                        , formQuestion.Cssclass, wizardStep.Order, wizardStepHeader = wizardStep.Header, formQuestion.Ordering
-                        , formQuestion.ControlId, formQuestion.Image, formQuestion.Icon, formQuestion.Required, formQuestion.HtmlControlId
-                        , formQuestion.HtmlControlName, formQuestionAnswer.Answer, answerIcon = formQuestionAnswer.Icon
-                        , answerCss = formQuestionAnswer.Cssclass, answerId = formQuestionAnswer.FormQuestionAnswerId
+                        resolution.ResolutionId
+                        , resolution.Resolution1
+                        , form.FormId
+                        , form.Descripcion
+                        , form.FormName
+                        , form.FormTypeId
+                        , wizard.WizardId
+                        , wizard.Header
+                        , wizard.Footer
+                        , formQuestion.FormQuestionId
+                        , formQuestion.Label
+                        /*, wizardStep.WizardStepId
+                        , wizardStep.MotivationalMessage
+                        , wizardStep.FactsMessage
+                        , wizardStep.Order
+                        , wizardStepHeader = wizardStep.Header*/
+                        , formQuestion.Cssclass
+                        , formQuestion.Ordering
+                        , formQuestion.ControlId
+                        , formQuestion.Image
+                        , formQuestion.Icon
+                        , formQuestion.Required
+                        , formQuestion.HtmlControlId
+                        , formQuestion.HtmlControlName
+                        /*, formQuestionAnswer.Answer
+                        , answerIcon = formQuestionAnswer.Icon
+                        , answerCss = formQuestionAnswer.Cssclass
+                        , answerId = formQuestionAnswer.FormQuestionAnswerId*/
                     };
 
                 var resolGrouped = resolutions.GroupBy(x => x.ResolutionId).Select(g => g.First());
+                var formsGrouped = resolutions.GroupBy(x => x.FormId).Select(g => g.First());
                 var wizardGrouped = resolutions.GroupBy(x => x.WizardId).Select(g => g.First());
-                var wizardStepGrouped = resolutions.GroupBy(x => x.WizardStepId).Select(g => g.First());
-                var questionGrouped = resolutions.GroupBy(x => x.WizardStepId).Select(g => g.First());
-                var answerGrouped = resolutions.GroupBy(x => x.FormQuestionId).Select(g => g.First());
 
                 foreach (var regrouped in resolGrouped)
                 {
@@ -71,64 +91,37 @@ namespace IrsMonkeyApi.Models.DAL
                     });
                 }
 
-                foreach (var resultAnswer in answerGrouped)
-                {
-                    answerList.Add(new FormQuestionAnswerDto
-                    {
-                        Answer = resultAnswer.Answer,
-                        FormQuestionId = resultAnswer.FormQuestionId,
-                        FormQuestionAnswerId = resultAnswer.answerId,
-                        css = resultAnswer.answerCss
-                    });
-                }
                 
-                foreach (var resultQuestion in questionGrouped)
+                foreach (var resultForms in formsGrouped)
                 {
-                    questionList.Add(new FormQuestionDto
+                    formsList.Add(new FormDto()
                     {
-                        CssClass = resultQuestion.Cssclass,
-                        Label = resultQuestion.Label,
-                        WizardStepId = resultQuestion.WizardStepId,
-                        Ordering = resultQuestion.Order,
-                        ControlId = resultQuestion.ControlId,
-                        Image = resultQuestion.Image,
-                        Icon = resultQuestion.Icon,
-                        Required = resultQuestion.Required,
-                        HtmlControlId = resultQuestion.HtmlControlId,
-                        HtmlControlName = resultQuestion.HtmlControlName,
-                        FormQuestionId = resultQuestion.FormQuestionId,
-                        Answers = answerList.Where(x => x.FormQuestionId == resultQuestion.FormQuestionId).ToList()
-                    });
-                }
-
-                foreach (var resultWizardStep in wizardStepGrouped)
-                {
-                        wizardStepList.Add(new WizardStepDto()
+                        FormId = resultForms.FormId,
+                        FormName = resultForms.FormName,
+                        Description = resultForms.Descripcion,
+                        FormTypeId = resultForms.FormTypeId,
+                        Questions = resolutions.Where(x => x.FormId == resultForms.FormId).Select(q => new FormQuestionDto()
                         {
-                            WizardId = resultWizardStep.WizardId,
-                            WizardStepId = resultWizardStep.WizardStepId,
-                            Order = resultWizardStep.Order,
-                            Header = resultWizardStep.wizardStepHeader,
-                            MotivationalMessage = resultWizardStep.MotivationalMessage,
-                            FactMessage = resultWizardStep.FactsMessage,
-                            FormQuestions = questionList.Where(x => x.WizardStepId == resultWizardStep.WizardStepId).ToList()
-                        });
-                }
-                
-                foreach (var resultWizard in wizardGrouped)
-                {
-                    wizardList.Add(new WizardDto()
-                    {
-                        FormId = resultWizard.FormId,
-                        Header = resultWizard.Header,
-                        WizardId = resultWizard.WizardId,
-                        Steps = wizardStepList.Where(x=>x.WizardId == resultWizard.WizardId).ToList()
+                            CssClass = q.Cssclass,
+                            Label = q.Label,
+                            /*WizardStepId = resultQuestion.WizardStepId,
+                            Ordering = resultQuestion.Order,*/
+                            ControlId = q.ControlId,
+                            Image = q.Image,
+                            Icon = q.Icon,
+                            Required = q.Required,
+                            HtmlControlId = q.HtmlControlId,
+                            HtmlControlName = q.HtmlControlName,
+                            FormQuestionId = q.FormQuestionId,
+                            FormId = q.FormId
+                        }).ToList()
                     });
                 }
 
-                foreach (var resultWizard in result)
+
+                foreach (var formWizard in result)
                 {
-                    resultWizard.Wizards = wizardList.Where(x => x.FormId == resultWizard.FormId).ToList();
+                    formWizard.Forms = formsList.Where(x => x.FormId == formWizard.FormId).ToList();
                 }
                 
 

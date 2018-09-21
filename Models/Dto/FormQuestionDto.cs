@@ -18,5 +18,6 @@ namespace IrsMonkeyApi.Models.Dto
         public string HtmlControlName { get; set; }
         public List<FormQuestionAnswerDto> Answers { get; set; }
         public int FormQuestionId { get; set; }
+        public int FormId { get; set; }
     }
 }
