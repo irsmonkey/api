@@ -32,9 +32,10 @@ namespace IrsMonkeyApi.Models.DAL
                         on form.FormId equals wizard.FormId
                     join wizardStep in _context.WizardStep
                         on wizard.WizardId equals wizardStep.WizardId
-//                    join formQuestion in _context.FormQuestion
-//                        on form.FormId equals formQuestion.FormId
-//                    join formQuestionAnswer in _context.FormQuestionAnswer
+                    join formQuestion in _context.FormQuestion
+                        on wizardStep.WizardStepId equals formQuestion.WizardStepId into formQuestionsJoin
+                    from forQuestionAnswer in _context.FormQuestionAnswer.DefaultIfEmpty()
+//                    join formQuestionAnswer in _context.FormQuestionAnswer.DefaultIfEmpty()
 //                        on formQuestion.FormQuestionId equals formQuestionAnswer.FormQuestionId
                     /*join wizardStep in _context.WizardStep
                         on formQuestion.WizardStepId equals wizardStep.WizardStepId*/
@@ -43,24 +44,17 @@ namespace IrsMonkeyApi.Models.DAL
                     {
                         resolution.ResolutionId, resolution.Resolution1, form.FormId,
                         formDescription = form.Descripcion, form.FormName, form.FormTypeId, wizard.WizardId,
-                        wizard.Header, wizard.Footer, wizardFormId = wizard.FormId
-//                        , formQuestion.FormQuestionId
-//                        , formQuestion.Label
-                        ,
+                        wizard.Header, wizard.Footer, wizardFormId = wizard.FormId,
                         wizardStep.WizardStepId, wizardStep.MotivationalMessage, wizardStep.FactsMessage,
-                        wizardStep.Order, wizardStepHeader = wizardStep.Header, wizardStepWizardId = wizardStep.WizardId
-//                        , formQuestion.Cssclass
-//                        , formQuestion.Ordering
-//                        , formQuestion.ControlId
-//                        , formQuestion.Image
-//                        , formQuestion.Icon
-//                        , formQuestion.Required
-//                        , formQuestion.HtmlControlId
-//                        , formQuestion.HtmlControlName
-                        /*, formQuestionAnswer.Answer
-                        , answerIcon = formQuestionAnswer.Icon
-                        , answerCss = formQuestionAnswer.Cssclass
-                        , answerId = formQuestionAnswer.FormQuestionAnswerId*/
+                        wizardStep.Order, wizardStepHeader = wizardStep.Header,
+                        wizardStepWizardId = wizardStep.WizardId, formQuestion.Cssclass,
+                        questionOrder = formQuestion.Ordering,
+                        formQuestion.ControlId, formQuestion.Image, formQuestion.Icon, formQuestion.Required,
+                        formQuestion.HtmlControlId, formQuestion.HtmlControlName, formQuestion.FormQuestionId,
+                        formQuestion.Label, questionWizardStep = formQuestion.WizardStepId, formQuestionAnswer.Answer,
+                        answerIcon = formQuestionAnswer.Icon, answerCss = formQuestionAnswer.Cssclass,
+                        answerId = formQuestionAnswer.FormQuestionAnswerId,
+                        answerQuestionId = formQuestionAnswer.FormQuestionId
                     }).ToList();
 
                 var distinctResolutions =
@@ -68,17 +62,43 @@ namespace IrsMonkeyApi.Models.DAL
                 var distinctWizard = resolutions.Select(x => new {x.WizardId, x.wizardFormId, x.Header}).Distinct();
                 var distinctWizardStep = resolutions.Select(x => new
                     {
-                        x.WizardStepId, x.MotivationalMessage, x.FactsMessage, x.Order, x.wizardStepHeader, x.wizardStepWizardId
+                        x.WizardStepId, x.MotivationalMessage, x.FactsMessage, x.Order, x.wizardStepHeader,
+                        x.wizardStepWizardId
                     })
                     .Distinct();
-                var distinctForm = resolutions.Select(x => new {x.FormId, x.formDescription, x.FormName}).Distinct();
+                var distinctFormQuestion = resolutions.Select(x => new
+                {
+                    x.questionOrder, x.Label, x.ControlId, x.Image, x.Required, x.Cssclass, x.Icon, x.HtmlControlId,
+                    x.HtmlControlName, x.FormQuestionId, x.FormId, x.questionWizardStep
+                }).Distinct();
+                var distinctFormQuestionAnswer = resolutions
+                    .Select(x => new {x.answerId, x.answerQuestionId, x.Answer, x.answerIcon, x.answerCss}).Distinct();
+
+                var formQuestionAnswerList = distinctFormQuestionAnswer.Select(formQuestionAnswer =>
+                    new FormQuestionAnswerDto()
+                    {
+                        Answer = formQuestionAnswer.Answer, css = formQuestionAnswer.answerCss,
+                        FormQuestionAnswerId = formQuestionAnswer.answerId,
+                        FormQuestionId = formQuestionAnswer.answerQuestionId, Icon = formQuestionAnswer.answerIcon
+                    }).ToList();
+                var formQuestionList = distinctFormQuestion.Select(formQuestion => new FormQuestionDto
+                {
+                    ControlId = formQuestion.ControlId, CssClass = formQuestion.Cssclass,
+                    FormId = formQuestion.FormId, 
+                    FormQuestionId = formQuestion.FormQuestionId, HtmlControlId = formQuestion.HtmlControlId,
+                    HtmlControlName = formQuestion.HtmlControlName, Ordering = formQuestion.questionOrder,
+                    Icon = formQuestion.Icon, Image = formQuestion.Image, Label = formQuestion.Label,
+                    WizardStepId = formQuestion.questionWizardStep,
+                    Answers = formQuestionAnswerList.Where(x => x.FormQuestionId == formQuestion.FormQuestionId).ToList()
+                }).ToList();
 
                 var wizardStepList = distinctWizardStep.Select(
-                    wizardStep => new WizardStepDto()
+                    wizardStep => new WizardStepDto
                     {
                         WizardStepId = wizardStep.WizardStepId, Order = wizardStep.Order,
                         Header = wizardStep.wizardStepHeader, MotivationalMessage = wizardStep.MotivationalMessage,
-                        FactMessage = wizardStep.FactsMessage, WizardId = wizardStep.wizardStepWizardId
+                        FactMessage = wizardStep.FactsMessage, WizardId = wizardStep.wizardStepWizardId,
+                        Questions = formQuestionList.Where(x => x.WizardStepId == wizardStep.WizardStepId).ToList()
                     }).ToList();
                 var wizardList = distinctWizard.Select(
                     wizard => new WizardDto

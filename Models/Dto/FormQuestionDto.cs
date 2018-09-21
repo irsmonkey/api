@@ -10,8 +10,6 @@ namespace IrsMonkeyApi.Models.Dto
         public string ControlId { get; set; }
         public string Image { get; set; }
         public bool? Required { get; set; }
-        public int? WizardStepId { get; set; }
-        public WizardStep WizardStep { get; set; }
         public string CssClass { get; set; }
         public string Icon { get; set; }
         public string HtmlControlId { get; set; }
@@ -19,5 +17,6 @@ namespace IrsMonkeyApi.Models.Dto
         public List<FormQuestionAnswerDto> Answers { get; set; }
         public int FormQuestionId { get; set; }
         public int FormId { get; set; }
+        public int? WizardStepId { get; set; }
     }
 }
