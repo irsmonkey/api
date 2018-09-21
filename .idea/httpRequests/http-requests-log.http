@@ -1,3 +1,15 @@
+GET https://localhost:5001/api/Resolution/GetAllResolutions
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET https://localhost:5001/api/Resolution/GetAllResolutions
+Accept: */*
+Cache-Control: no-cache
+
+###
+
 GET https://localhost:5001/api/values
 Accept: */*
 Cache-Control: no-cache

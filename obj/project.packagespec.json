@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
+    "projectUniqueName": "C:\\Users\\Gerardo\\code\\irsmonkey\\MemberApi\\IrsMonkeyApi.csproj",
     "projectName": "IrsMonkeyApi",
-    "projectPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
-    "outputPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/obj/",
+    "projectPath": "C:\\Users\\Gerardo\\code\\irsmonkey\\MemberApi\\IrsMonkeyApi.csproj",
+    "outputPath": "C:\\Users\\Gerardo\\code\\irsmonkey\\MemberApi\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netcoreapp2.1"
