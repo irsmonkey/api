@@ -6,5 +6,6 @@ namespace IrsMonkeyApi.Models.Dto
         public int FormQuestionId { get; set; }
         public string Answer { get; set; }
         public string Icon { get; set; }
+        public string css { get; set; }
     }
 }
