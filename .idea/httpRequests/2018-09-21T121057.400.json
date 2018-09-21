@@ -1,0 +1,14 @@
+{
+  "ClassName": "System.Exception",
+  "Message": "Nullable object must have a value.",
+  "Data": null,
+  "InnerException": null,
+  "HelpURL": null,
+  "StackTraceString": "   at IrsMonkeyApi.Models.DAL.ResolutionDal.GetAllResolutions() in C:\\Users\\Gerardo\\code\\irsmonkey\\MemberApi\\Models\\DAL\\ResolutionDal.cs:line 121\r\n   at IrsMonkeyApi.Controllers.ResolutionController.Index() in C:\\Users\\Gerardo\\code\\irsmonkey\\MemberApi\\Controllers\\ResolutionController.cs:line 27",
+  "RemoteStackTraceString": null,
+  "RemoteStackIndex": 0,
+  "ExceptionMethod": null,
+  "HResult": -2146233088,
+  "Source": "IrsMonkeyApi",
+  "WatsonBuckets": null
+}

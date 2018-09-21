@@ -2,6 +2,28 @@ GET https://localhost:5001/api/Resolution/GetAllResolutions
 Accept: */*
 Cache-Control: no-cache
 
+<> 2018-09-21T121057.400.json
+
+###
+
+GET https://localhost:5001/api/Resolution/GetAllResolutions
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET https://localhost:5001/api/Resolution/GetAllResolutions
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-09-21T120812.400.json
+
+###
+
+GET https://localhost:5001/api/Resolution/GetAllResolutions
+Accept: */*
+Cache-Control: no-cache
+
 ###
 
 GET https://localhost:5001/api/Resolution/GetAllResolutions

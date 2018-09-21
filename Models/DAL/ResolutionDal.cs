@@ -33,10 +33,10 @@ namespace IrsMonkeyApi.Models.DAL
                     join wizardStep in _context.WizardStep
                         on wizard.WizardId equals wizardStep.WizardId
                     join formQuestion in _context.FormQuestion
-                        on wizardStep.WizardStepId equals formQuestion.WizardStepId into formQuestionsJoin
-                    from forQuestionAnswer in _context.FormQuestionAnswer.DefaultIfEmpty()
-//                    join formQuestionAnswer in _context.FormQuestionAnswer.DefaultIfEmpty()
-//                        on formQuestion.FormQuestionId equals formQuestionAnswer.FormQuestionId
+                        on wizardStep.WizardStepId equals formQuestion.WizardStepId 
+                    join formQuestionAnswer in _context.FormQuestionAnswer 
+                            on formQuestion.FormQuestionId equals formQuestionAnswer.FormQuestionId into formQuestionAnswerJoin
+                    from formQuestionAnswer in formQuestionAnswerJoin.DefaultIfEmpty()
                     /*join wizardStep in _context.WizardStep
                         on formQuestion.WizardStepId equals wizardStep.WizardStepId*/
                     where form.FormTypeId == 2
@@ -51,10 +51,10 @@ namespace IrsMonkeyApi.Models.DAL
                         questionOrder = formQuestion.Ordering,
                         formQuestion.ControlId, formQuestion.Image, formQuestion.Icon, formQuestion.Required,
                         formQuestion.HtmlControlId, formQuestion.HtmlControlName, formQuestion.FormQuestionId,
-                        formQuestion.Label, questionWizardStep = formQuestion.WizardStepId, formQuestionAnswer.Answer,
-                        answerIcon = formQuestionAnswer.Icon, answerCss = formQuestionAnswer.Cssclass,
-                        answerId = formQuestionAnswer.FormQuestionAnswerId,
-                        answerQuestionId = formQuestionAnswer.FormQuestionId
+                        formQuestion.Label, questionWizardStep = formQuestion.WizardStepId, answer = formQuestionAnswer.Answer ?? "",
+                        answerIcon = formQuestionAnswer.Icon ?? "", answerCss = formQuestionAnswer.Cssclass ?? "",
+                        answerId = (formQuestionAnswer.FormQuestionAnswerId==null||formQuestionAnswer.FormQuestionAnswerId==0)?0: formQuestionAnswer.FormQuestionAnswerId,
+                        answerQuestionId = (formQuestionAnswer.FormQuestionId==null||formQuestionAnswer.FormQuestionId==0)?0:formQuestionAnswer.FormQuestionId
                     }).ToList();
 
                 var distinctResolutions =
@@ -72,12 +72,12 @@ namespace IrsMonkeyApi.Models.DAL
                     x.HtmlControlName, x.FormQuestionId, x.FormId, x.questionWizardStep
                 }).Distinct();
                 var distinctFormQuestionAnswer = resolutions
-                    .Select(x => new {x.answerId, x.answerQuestionId, x.Answer, x.answerIcon, x.answerCss}).Distinct();
+                    .Select(x => new {x.answerId, x.answerQuestionId, x.answer, x.answerIcon, x.answerCss}).Distinct();
 
                 var formQuestionAnswerList = distinctFormQuestionAnswer.Select(formQuestionAnswer =>
                     new FormQuestionAnswerDto()
                     {
-                        Answer = formQuestionAnswer.Answer, css = formQuestionAnswer.answerCss,
+                        Answer = formQuestionAnswer.answer, css = formQuestionAnswer.answerCss,
                         FormQuestionAnswerId = formQuestionAnswer.answerId,
                         FormQuestionId = formQuestionAnswer.answerQuestionId, Icon = formQuestionAnswer.answerIcon
                     }).ToList();
