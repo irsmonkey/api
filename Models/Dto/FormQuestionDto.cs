@@ -18,5 +18,7 @@ namespace IrsMonkeyApi.Models.Dto
         public int FormQuestionId { get; set; }
         public int FormId { get; set; }
         public int? WizardStepId { get; set; }
+        public string Function { get; set; }
+        public int? ControlType { get; set; }
     }
-}
+}    
