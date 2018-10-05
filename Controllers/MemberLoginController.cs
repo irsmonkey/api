@@ -5,10 +5,12 @@ using AutoMapper;
 using IrsMonkeyApi.Models.DAL;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IrsMonkeyApi.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     public class MemberLoginController : Controller
     {
@@ -45,6 +47,7 @@ namespace IrsMonkeyApi.Controllers
             }
         }
 
+        
         [HttpPost, Route("AddMemberLogin")]
         public ActionResult Add([FromBody] MemberLoginDto memberLogin)
         {

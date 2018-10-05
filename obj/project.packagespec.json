@@ -34,6 +34,10 @@
           "target": "Package",
           "version": "[5.0.1, )"
         },
+        "Microsoft.AspNet.Cors": {
+          "target": "Package",
+          "version": "[5.2.6, )"
+        },
         "Microsoft.AspNetCore.App": {
           "target": "Package",
           "version": "[2.1.2, )"

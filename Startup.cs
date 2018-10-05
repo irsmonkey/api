@@ -28,6 +28,13 @@ namespace IrsMonkeyApi
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             services.AddDbContext<IRSMonkeyContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("IrsMonkeyDatabase")));
+            services.AddCors( o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+            }));
             services.AddScoped<IMemberLoginDal, MemberLoginDal>();
             services.AddScoped<IMemberDal, MemberDal>();
             services.AddScoped<IFormDal, FormDal>();
@@ -48,7 +55,8 @@ namespace IrsMonkeyApi
             {
                 app.UseHsts();
             }
-
+            
+            app.UseCors("MyPolicy");
             app.UseHttpsRedirection();
             app.UseMvc();
         }
