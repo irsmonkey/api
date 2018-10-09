@@ -6,7 +6,7 @@ namespace IrsMonkeyApi.Models.DAL
 {
     public interface IMemberLoginDal
     {
-        bool ValidateUser(string username, string password);
+        MemberLogin ValidateUser(string username, string password);
         MemberLogin CreateMemberLogin(MemberLoginDto member);
         MemberLogin GetMemberLogin(Guid id);
     }

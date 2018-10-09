@@ -15,13 +15,13 @@ namespace IrsMonkeyApi.Models.DAL
             _context = context;
         }
         
-        public bool ValidateUser(string username, string password)
+        public MemberLogin ValidateUser(string username, string password)
         {
             try
             {
                 var validated = _context.MemberLogin
                     .FirstOrDefault(ml => ml.Username == username && ml.Password == password);
-                return validated != null;
+                return validated;
             }
             catch (Exception)
             {
