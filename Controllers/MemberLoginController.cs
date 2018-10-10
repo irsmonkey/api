@@ -39,7 +39,7 @@ namespace IrsMonkeyApi.Controllers
             try
             {
                 var validated = _dal.ValidateUser(member.Username, member.Password);
-                return validated == null ? Ok(false) : Ok(validated.MemberId);
+                return validated == null ? Ok(false) : Ok(validated);
             }
             catch (Exception e)
             {

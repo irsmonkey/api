@@ -16,7 +16,7 @@ namespace IrsMonkeyApi.Models.DAL
             _context = context;
         }
         
-        public Member ValidateUser(string username, string password)
+        public MemberDto ValidateUser(string username, string password)
         {
             try
             {
@@ -25,9 +25,19 @@ namespace IrsMonkeyApi.Models.DAL
                         on memberLogin.Username equals memberData.Email
                     where memberLogin.Username == username
                           && memberLogin.Password == password
-                    select new Member()
+                    select new MemberDto()
                     {
-                        MemberId = memberData.MemberId
+                        MemberId = memberData.MemberId,
+                        FirstName = memberData.FirstName,
+                        LastName = memberData.LastName,
+                        Phone = memberData.Phone,
+                        Email = memberData.Email,
+                        DateOfBirth = memberData.DateOfBirth,
+                        Ssn = memberData.Ssn,
+                        Address = memberData.Address,
+                        City = memberData.City,
+                        State = memberData.State,
+                        ZipCode = memberData.ZipCode
                     }).FirstOrDefault();
                 
                 return validated;

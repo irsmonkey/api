@@ -95,6 +95,7 @@
           <e p="FormQuestionAnswerDto.cs" t="Include" />
           <e p="FormQuestionDto.cs" t="Include" />
           <e p="FormSubmittedDto.cs" t="Include" />
+          <e p="MemberDto.cs" t="Include" />
           <e p="MemberLoginDto.cs" t="Include" />
           <e p="ResolutionDto.cs" t="Include" />
           <e p="WizardDto.cs" t="Include" />
