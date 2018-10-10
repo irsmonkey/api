@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace IrsMonkeyApi.Models.DAL
@@ -15,12 +16,20 @@ namespace IrsMonkeyApi.Models.DAL
             _context = context;
         }
         
-        public MemberLogin ValidateUser(string username, string password)
+        public Member ValidateUser(string username, string password)
         {
             try
             {
-                var validated = _context.MemberLogin
-                    .FirstOrDefault(ml => ml.Username == username && ml.Password == password);
+                var validated = (from memberLogin in _context.MemberLogin
+                    join memberData in _context.Member
+                        on memberLogin.Username equals memberData.Email
+                    where memberLogin.Username == username
+                          && memberLogin.Password == password
+                    select new Member()
+                    {
+                        MemberId = memberData.MemberId
+                    }).FirstOrDefault();
+                
                 return validated;
             }
             catch (Exception)
