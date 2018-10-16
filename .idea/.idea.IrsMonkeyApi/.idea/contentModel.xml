@@ -4,7 +4,7 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
-      <e p="Automapper" t="Include">
+      <e p="automapper" t="Include">
         <e p="AutomapperProfile.cs" t="Include" />
       </e>
       <e p="Bin" t="ExcludeRecursive" />
@@ -16,6 +16,7 @@
         <e p="MemberController.cs" t="Include" />
         <e p="MemberLoginController.cs" t="Include" />
         <e p="ResolutionController.cs" t="Include" />
+        <e p="UploadFile.cs" t="Include" />
       </e>
       <e p="IrsMonkeyApi.csproj" t="IncludeRecursive" />
       <e p="Models" t="Include">
@@ -26,7 +27,7 @@
           <e p="IFormDal.cs" t="Include" />
           <e p="IFormSubmittedAnswerDal.cs" t="Include" />
           <e p="IFormSubmittedDal.cs" t="Include" />
-          <e p="IGeoLocationDal.cs" t="Include" />
+          <e p="iGeoLocationDal.cs" t="Include" />
           <e p="IMemberDal.cs" t="Include" />
           <e p="IMemberLoginDal.cs" t="Include" />
           <e p="IResolutionDal.cs" t="Include" />
@@ -115,10 +116,14 @@
         <e p="launchSettings.json" t="Include" />
       </e>
       <e p="Startup.cs" t="Include" />
+      <e p="uploads" t="Include">
+        <e p="uploads" t="Include">
+          <e p="NIT-35232307-PER-2018-09-COD-2046-NRO-22958847649-BOLETA (1).pdf" t="Include" />
+        </e>
+      </e>
       <e p="wwwroot" t="Include" />
     </e>
     <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_IrsMonkeyApi.340352400.00" t="ExcludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_MemberApi.-1813388869.00" t="ExcludeRecursive" />
   </component>
 </project>
