@@ -31,9 +31,11 @@
           <e p="IMemberDal.cs" t="Include" />
           <e p="IMemberLoginDal.cs" t="Include" />
           <e p="IResolutionDal.cs" t="Include" />
+          <e p="iUploadFileDb.cs" t="Include" />
           <e p="MemberDal.cs" t="Include" />
           <e p="MemberLoginDal.cs" t="Include" />
           <e p="ResolutionDal.cs" t="Include" />
+          <e p="UploadFileDb.cs" t="Include" />
         </e>
         <e p="DB" t="Include">
           <e p="Alert.cs" t="Include" />
@@ -118,12 +120,16 @@
       <e p="Startup.cs" t="Include" />
       <e p="uploads" t="Include" />
       <e p="wwwroot" t="Include">
-        <e p="--codeline laravel.pages" t="Include" />
-        <e p="237128937" t="Include">
-          <e p="oic-237128937-codeline laravel.pages" t="Include" />
-        </e>
         <e p="b91a4e0f-cbcb-e811-af11-0004ffd165ee" t="Include">
           <e p="OIC-b91a4e0f-cbcb-e811-af11-0004ffd165ee-codeline laravel.pages" t="Include" />
+          <e p="OIC-b91a4e0f-cbcb-e811-af11-0004ffd165ee-cv gerardo jaramillo.pdf" t="Include" />
+          <e p="OIC-Health Insurance Statment-b91a4e0f-cbcb-e811-af11-0004ffd165ee-MedicareMobileHomePage.jpg" t="Include" />
+          <e p="OIC-Mortgage Statement-b91a4e0f-cbcb-e811-af11-0004ffd165ee-5_UML_rev1.pdf" t="Include" />
+          <e p="OIC-Other Expenses-b91a4e0f-cbcb-e811-af11-0004ffd165ee-MedicareMobilePPCListing.jpg" t="Include" />
+          <e p="oic-test-B91A4E0F-CBCB-E811-AF11-0004FFD165EE-codeline laravel.pages" t="Include" />
+          <e p="OIC-Upload Bank Statment-b91a4e0f-cbcb-e811-af11-0004ffd165ee-DevHC.ppk" t="Include" />
+          <e p="OIC-Upload Bank Statment-b91a4e0f-cbcb-e811-af11-0004ffd165ee-GerardoJaramillo20052497DefinicionDeCriterios.pdf" t="Include" />
+          <e p="OIC-Vehicle Loan Statment-b91a4e0f-cbcb-e811-af11-0004ffd165ee-model.mwb" t="Include" />
         </e>
       </e>
     </e>

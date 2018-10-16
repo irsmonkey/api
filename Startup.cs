@@ -41,6 +41,7 @@ namespace IrsMonkeyApi
             services.AddScoped<IResolutionDal, ResolutionDal>();
             services.AddScoped<IGeoLocationDal, GeoLocationDal>();
             services.AddScoped<IFormSubmittedDal, FormSubmittedDal>();
+            services.AddScoped<IUploadFileDb, UploadFileDb>();
             services.AddAutoMapper();
         }
 
