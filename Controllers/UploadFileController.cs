@@ -10,12 +10,12 @@ namespace IrsMonkeyApi.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class UploadFile : Controller
+    public class UploadFileController : Controller
     {
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IUploadFileDb _uploadFileDb;
 
-        public UploadFile(IHostingEnvironment hostingEnvironment, IUploadFileDb uploadFileDb)
+        public UploadFileController(IHostingEnvironment hostingEnvironment, IUploadFileDb uploadFileDb)
         {
             _hostingEnvironment = hostingEnvironment;
             _uploadFileDb = uploadFileDb;
