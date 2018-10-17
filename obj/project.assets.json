@@ -11667,11 +11667,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
+      "projectUniqueName": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/IrsMonkeyApi.csproj",
       "projectName": "IrsMonkeyApi",
-      "projectPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
+      "projectPath": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/IrsMonkeyApi.csproj",
       "packagesPath": "/Users/gerardojaramillo/.nuget/packages/",
-      "outputPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/obj/",
+      "outputPath": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
