@@ -5269,7 +5269,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.1": {
-      "sha512": "f8PKGcxiezL1RVqmnmrazj24Mj4KCTSXqwdotl7Lc+82h8iLV7ItxEIShTJakG7M9iw0ZuCocM0J/IhYesdQrg==",
+      "sha512": "BOK5fckW9v7xWjpEI6bPGwkjw10OPVASZcAa8HoWJo/0Mmg4Azddj92v8noU+YgvD/6zNZ9o/RiRXXKxk5rYwQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.1",
       "files": [
@@ -11667,17 +11667,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/IrsMonkeyApi.csproj",
+      "projectUniqueName": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
       "projectName": "IrsMonkeyApi",
-      "projectPath": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/IrsMonkeyApi.csproj",
+      "projectPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
       "packagesPath": "/Users/gerardojaramillo/.nuget/packages/",
-      "outputPath": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/obj/",
+      "outputPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/gerardojaramillo/.nuget/NuGet/NuGet.Config"
+        "/Users/gerardojaramillo/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -11728,6 +11728,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
