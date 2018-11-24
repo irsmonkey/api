@@ -452,7 +452,7 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.HasOne(d => d.WizarStep)
                     .WithMany(p => p.FormSubmitted)
-                    .HasForeignKey(d => d.WizarStepId)
+                    .HasForeignKey(d => d.WizardStepId)
                     .HasConstraintName("FormSubmitted_WizardStep_WizardStepID_fk");
             });
 

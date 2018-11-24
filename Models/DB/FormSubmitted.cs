@@ -14,7 +14,7 @@ namespace IrsMonkeyApi.Models.DB
         public int? FormId { get; set; }
         public Guid? MemberId { get; set; }
         public DateTime? DateCreated { get; set; }
-        public int? WizarStepId { get; set; }
+        public int? WizardStepId { get; set; }
         public int? FormSubmitedStatusId { get; set; }
 
         public Form Form { get; set; }
