@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace IrsMonkeyApi.Models.DB
 {
-    public partial class WizardStep
+    public partial class WizarStep
     {
-        public WizardStep()
+        public WizarStep()
         {
             FormQuestion = new HashSet<FormQuestion>();
             FormSubmitted = new HashSet<FormSubmitted>();
         }
 
+        [Key]
         public int WizardStepId { get; set; }
         public int WizardId { get; set; }
         public int Order { get; set; }

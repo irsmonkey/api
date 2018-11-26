@@ -8,7 +8,7 @@ namespace IrsMonkeyApi.Models.Dto
     {
         public int FormId { get; set; }
         public Guid MemberId { get; set; }
-        public int WizardStepId { get; set; }
+        public int WizarStepId { get; set; }
         public List<FormSubmittedAnswer> SubmittedAnswers { get; set; }
     }
 }

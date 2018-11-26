@@ -7,7 +7,7 @@ namespace IrsMonkeyApi.Models.DB
     {
         public Wizard()
         {
-            WizardStep = new HashSet<WizardStep>();
+            WizardStep = new HashSet<WizarStep>();
         }
 
         public int WizardId { get; set; }
@@ -21,6 +21,6 @@ namespace IrsMonkeyApi.Models.DB
 
         public Form Form { get; set; }
         public Resolution Resolution { get; set; }
-        public ICollection<WizardStep> WizardStep { get; set; }
+        public ICollection<WizarStep> WizardStep { get; set; }
     }
 }

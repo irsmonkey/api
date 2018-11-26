@@ -67,7 +67,7 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<Wizard> Wizard { get; set; }
-        public virtual DbSet<WizardStep> WizardStep { get; set; }
+        public virtual DbSet<WizarStep> WizardStep { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -346,7 +346,7 @@ namespace IrsMonkeyApi.Models.DB
                     .HasForeignKey(d => d.FormPredefinedFieldId)
                     .HasConstraintName("FK_FormQuestion_FormPredefinedField");
 
-                entity.HasOne(d => d.WizardStep)
+                entity.HasOne(d => d.WizarStep)
                     .WithMany(p => p.FormQuestion)
                     .HasForeignKey(d => d.WizardStepId)
                     .HasConstraintName("FK_FormQuestion_WizardStep");
@@ -452,7 +452,7 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.HasOne(d => d.WizarStep)
                     .WithMany(p => p.FormSubmitted)
-                    .HasForeignKey(d => d.WizardStepId)
+                    .HasForeignKey(d => d.WizarStepId)
                     .HasConstraintName("FormSubmitted_WizardStep_WizardStepID_fk");
             });
 
@@ -1434,7 +1434,7 @@ namespace IrsMonkeyApi.Models.DB
                     .HasConstraintName("FK_FormResolution_Resolution");
             });
 
-            modelBuilder.Entity<WizardStep>(entity =>
+            modelBuilder.Entity<WizarStep>(entity =>
             {
                 entity.Property(e => e.WizardStepId).HasColumnName("WizardStepID");
 

@@ -14,13 +14,13 @@ namespace IrsMonkeyApi.Models.DB
         public int? FormId { get; set; }
         public Guid? MemberId { get; set; }
         public DateTime? DateCreated { get; set; }
-        public int? WizardStepId { get; set; }
+        public int? WizarStepId { get; set; }
         public int? FormSubmitedStatusId { get; set; }
 
         public Form Form { get; set; }
         public FormSubmittedStatus FormSubmitedStatus { get; set; }
         public Member Member { get; set; }
-        public WizardStep WizarStep { get; set; }
+        public WizarStep WizarStep { get; set; }
         public ICollection<FormSubmittedAnswer> FormSubmittedAnswer { get; set; }
     }
 }

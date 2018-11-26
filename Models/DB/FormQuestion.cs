@@ -42,7 +42,7 @@ namespace IrsMonkeyApi.Models.DB
         public Form Form { get; set; }
         public FormControlType FormControlType { get; set; }
         public FormPredefinedField FormPredefinedField { get; set; }
-        public WizardStep WizardStep { get; set; }
+        public WizarStep WizarStep { get; set; }
         public ICollection<FormQuestionAnswer> FormQuestionAnswer { get; set; }
         public ICollection<FormSubmittedAnswer> FormSubmittedAnswer { get; set; }
     }

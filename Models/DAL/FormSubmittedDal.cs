@@ -29,7 +29,7 @@ namespace IrsMonkeyApi.Models.DAL
                     {
                         FormId = formSubmittedDto.FormId,
                         MemberId = formSubmittedDto.MemberId,
-                        WizardStepId = formSubmittedDto.WizardStepId
+                        WizarStepId = formSubmittedDto.WizarStepId
                     };
                     _context.FormSubmitted.Add(formSubmitted);
                     _context.SaveChanges();
