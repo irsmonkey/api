@@ -54,12 +54,11 @@ namespace IrsMonkeyApi.Models.DAL
                         formQuestion.FormControlTypeId,
                         formQuestion.TriggerFunction, answer = formQuestionAnswer.Answer ?? "",
                         answerIcon = formQuestionAnswer.Icon ?? "", answerCss = formQuestionAnswer.Cssclass ?? "",
-                        answerId = (formQuestionAnswer.FormQuestionAnswerId == null ||
-                                    formQuestionAnswer.FormQuestionAnswerId == 0)
+                        answerId = (formQuestionAnswer.FormQuestionAnswerId == 0)
                             ? 0
                             : formQuestionAnswer.FormQuestionAnswerId,
                         answerQuestionId =
-                            (formQuestionAnswer.FormQuestionId == null || formQuestionAnswer.FormQuestionId == 0)
+                            (formQuestionAnswer.FormQuestionId == 0)
                                 ? 0
                                 : formQuestionAnswer.FormQuestionId
                     }).ToList();
