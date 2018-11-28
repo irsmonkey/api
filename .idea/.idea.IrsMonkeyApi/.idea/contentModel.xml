@@ -17,6 +17,7 @@
         <e p="GeoLocationController.cs" t="Include" />
         <e p="MemberController.cs" t="Include" />
         <e p="MemberLoginController.cs" t="Include" />
+        <e p="Payment.cs" t="Include" />
         <e p="ResolutionController.cs" t="Include" />
         <e p="UploadFileController.cs" t="Include" />
       </e>
@@ -32,10 +33,12 @@
           <e p="IGeoLocationDal.cs" t="Include" />
           <e p="IMemberDal.cs" t="Include" />
           <e p="IMemberLoginDal.cs" t="Include" />
+          <e p="IPaymentGateway.cs" t="Include" />
           <e p="IResolutionDal.cs" t="Include" />
           <e p="IUploadFileDb.cs" t="Include" />
           <e p="MemberDal.cs" t="Include" />
           <e p="MemberLoginDal.cs" t="Include" />
+          <e p="PaymentGateway.cs" t="Include" />
           <e p="ResolutionDal.cs" t="Include" />
           <e p="UploadFileDb.cs" t="Include" />
         </e>
@@ -102,6 +105,7 @@
           <e p="FormSubmittedDto.cs" t="Include" />
           <e p="MemberDto.cs" t="Include" />
           <e p="MemberLoginDto.cs" t="Include" />
+          <e p="PaymentDTO.cs" t="Include" />
           <e p="ResolutionDto.cs" t="Include" />
           <e p="WizardDto.cs" t="Include" />
           <e p="WizardStepDto.cs" t="Include" />
