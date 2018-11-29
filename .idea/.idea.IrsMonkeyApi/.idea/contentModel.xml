@@ -17,7 +17,7 @@
         <e p="GeoLocationController.cs" t="Include" />
         <e p="MemberController.cs" t="Include" />
         <e p="MemberLoginController.cs" t="Include" />
-        <e p="Payment.cs" t="Include" />
+        <e p="PaymentController.cs" t="Include" />
         <e p="ResolutionController.cs" t="Include" />
         <e p="UploadFileController.cs" t="Include" />
       </e>
@@ -107,6 +107,7 @@
           <e p="MemberLoginDto.cs" t="Include" />
           <e p="PaymentDTO.cs" t="Include" />
           <e p="ResolutionDto.cs" t="Include" />
+          <e p="ResponseDto.cs" t="Include" />
           <e p="WizardDto.cs" t="Include" />
           <e p="WizardStepDto.cs" t="Include" />
         </e>

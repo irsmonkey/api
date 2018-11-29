@@ -1,8 +1,14 @@
 using System;
+using System.Collections.Generic;
 
 namespace IrsMonkeyApi.Models.Dto
 {
     public class PaymentDTO
+    {
+        public PaymentRequest createTransactionRequest;
+    }
+
+    public class PaymentRequest
     {
         public MerchantAuthentication merchantAuthentication { get; set; }
         public string refId { get; set; }
@@ -117,7 +123,7 @@ namespace IrsMonkeyApi.Models.Dto
 
     public class UserFields
     {
-            public UserField[] Type { get; set; }
+            public List<UserField> userField { get; set; }
     }
 
     public class UserField

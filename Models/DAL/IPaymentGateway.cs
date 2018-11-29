@@ -1,9 +1,12 @@
 using System;
+using System.Net;
+using System.Threading.Tasks;
+using IrsMonkeyApi.Models.Dto;
 
 namespace IrsMonkeyApi.Models.DAL
 {
     public interface IPaymentGateway
     {
-        bool AuthorizePayment(string ApiLoginId, string ApiTransactionKey, decimal amount);
+        HttpWebResponse ChargeCreditCard(PaymentDTO paymentDetails, Guid memberId);
     }
 }
