@@ -48,11 +48,15 @@ namespace IrsMonkeyApi.Models.DAL
                 var response = request.GetResponse() as HttpWebResponse;
                 var streamResponse = response.GetResponseStream();
                 var streamReader = new StreamReader(streamResponse, Encoding.UTF8);
+               
                 var order = _context.FormSubmitted.FirstOrDefault(form => form.MemberId == memberId);
-                if (response.StatusCode == HttpStatusCode.Created)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
+                    var resp = streamReader.ReadToEnd();
+                    var respoObject = JsonConvert.DeserializeObject<PaymentResponseDto>(resp);
+                    
                     if (order != null)
-                    {
+                    {    
                         order.FormSubmitedStatus = new FormSubmittedStatus()
                         {
                             FormSubmittedStatusId = 2

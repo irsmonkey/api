@@ -39,4 +39,4 @@ C:/Users/Gerardo/code/irsmonkey/MemberApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.R
 C:/Users/Gerardo/code/irsmonkey/MemberApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.AssemblyInfoInputs.cache
 C:/Users/Gerardo/code/irsmonkey/MemberApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.AssemblyInfo.cs
 C:/Users/Gerardo/code/irsmonkey/MemberApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.RazorTargetAssemblyInfo.cache
-/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csprojAssemblyReference.cache
+/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/obj/Debug/netcoreapp2.1/IrsMonkeyApi.csprojResolveAssemblyReference.cache
