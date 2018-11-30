@@ -15,6 +15,7 @@ namespace IrsMonkeyApi.Models.DB
         public string Icon { get; set; }
         public string Label { get; set; }
         public string HtmlControlId { get; set; }
+        public string Value { get; set; }
 
         public FormQuestion FormQuestion { get; set; }
     }

@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/IrsMonkeyApi.csproj",
+    "projectUniqueName": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
     "projectName": "IrsMonkeyApi",
-    "projectPath": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/IrsMonkeyApi.csproj",
-    "outputPath": "/Users/gerardojaramillo/Code/IrsMonkey/MemberApi/obj/",
+    "projectPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/IrsMonkeyApi.csproj",
+    "outputPath": "/Users/gerardojaramillo/code/IrsMonkeyApi/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

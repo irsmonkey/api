@@ -16,7 +16,7 @@ namespace IrsMonkeyApi.Controllers
         }
         
         [Route("chargeCard"), HttpPost]
-        public IActionResult Index([FromBody] PaymentDTO paymentDetails, Guid memberId)
+        public IActionResult Index([FromBody] PaymentDTO paymentDetails, [FromQuery(Name = "memberId")] Guid memberId)
         {
             try
             {

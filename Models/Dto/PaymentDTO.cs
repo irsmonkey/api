@@ -41,6 +41,11 @@ namespace IrsMonkeyApi.Models.Dto
 
     public class Payment
     {
+        public CreditCard creditCard { get; set; }
+    }
+
+    public class CreditCard
+    {
         public string cardNumber { get; set; }
         public string expirationDate { get; set; }
         public string cardCode { get; set; }

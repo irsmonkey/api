@@ -24,7 +24,7 @@ namespace IrsMonkeyApi.Models.DAL
             _context = context;
         }
         
-        public HttpWebResponse ChargeCreditCard(PaymentDTO paymentDetails, Guid memberId)
+        public PaymentResponseDto ChargeCreditCard(PaymentDTO paymentDetails, Guid memberId)
         {
             try
             {
@@ -46,30 +46,32 @@ namespace IrsMonkeyApi.Models.DAL
                 request.Expect = "application/json";
                 request.GetRequestStream().Write(postBytes, 0, postBytes.Length);
                 var response = request.GetResponse() as HttpWebResponse;
+                var responseObject = new PaymentResponseDto();
                 var streamResponse = response.GetResponseStream();
                 var streamReader = new StreamReader(streamResponse, Encoding.UTF8);
-               
-                var order = _context.FormSubmitted.FirstOrDefault(form => form.MemberId == memberId);
+                var resp = streamReader.ReadToEnd();
+                var respObject = JsonConvert.DeserializeObject<PaymentResponseDto>(resp);
+                responseObject = respObject;
+
+                var order = _context.FormSubmitted.Where(form => form.MemberId == memberId).OrderByDescending(x => x.FormSubmittedId).FirstOrDefault();
                 if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    var resp = streamReader.ReadToEnd();
-                    var respoObject = JsonConvert.DeserializeObject<PaymentResponseDto>(resp);
-                    
-                    if (order != null)
-                    {    
-                        order.FormSubmitedStatus = new FormSubmittedStatus()
-                        {
-                            FormSubmittedStatusId = 2
-                        };
+                {   
+                    if (respObject.transactionResponse.responseCode == "1")
+                    {
+                        order.FormSubmitedStatusId = 3;
+                        _context.SaveChanges();
+
+                    }
+                    else if(respObject.transactionResponse.responseCode == "3")
+                    {
+                        order.FormSubmitedStatusId = 4;
+                        _context.SaveChanges();
                     }
                 }else if (response.StatusCode == HttpStatusCode.BadRequest)
                 {
-                    order.FormSubmitedStatus = new FormSubmittedStatus()
-                    {
-                        FormSubmittedStatusId = 3
-                    };
+                    throw new Exception("There was an error");
                 }
-                return response;
+                return responseObject;
             }
             catch (Exception e)
             {

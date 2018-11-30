@@ -127,9 +127,19 @@
       </e>
       <e p="Startup.cs" t="Include" />
       <e p="uploads" t="Include" />
-      <e p="wwwroot" t="Include" />
+      <e p="wwwroot" t="Include">
+        <e p="b91a4e0f-cbcb-e811-af11-0004ffd165ee" t="Include">
+          <e p="OIC-Mortgage Statement-b91a4e0f-cbcb-e811-af11-0004ffd165ee-cv gerardo jaramillo.pdf" t="Include" />
+          <e p="OIC-Profit and Loss Statement -b91a4e0f-cbcb-e811-af11-0004ffd165ee-cv gerardo jaramillo.pdf" t="Include" />
+          <e p="OIC-Upload Bank Statment-b91a4e0f-cbcb-e811-af11-0004ffd165ee-cv gerardo jaramillo.pdf" t="Include" />
+          <e p="OIC-Upload Bank Statment-b91a4e0f-cbcb-e811-af11-0004ffd165ee-MedicareMobileHomePage.jpg" t="Include" />
+          <e p="OIC-Upload Bank Statment-b91a4e0f-cbcb-e811-af11-0004ffd165ee-MedicareMobilePPCListing.jpg" t="Include" />
+          <e p="OIC-Upload Bank Statment-b91a4e0f-cbcb-e811-af11-0004ffd165ee-model.mwb.bak" t="Include" />
+        </e>
+      </e>
     </e>
     <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_MemberApi.-1813388869.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_IrsMonkeyApi.340352400.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
   </component>
 </project>

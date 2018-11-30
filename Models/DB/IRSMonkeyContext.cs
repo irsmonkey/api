@@ -67,7 +67,7 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<Wizard> Wizard { get; set; }
-        public virtual DbSet<WizarStep> WizardStep { get; set; }
+        public virtual DbSet<WizardStep> WizardStep { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -346,7 +346,7 @@ namespace IrsMonkeyApi.Models.DB
                     .HasForeignKey(d => d.FormPredefinedFieldId)
                     .HasConstraintName("FK_FormQuestion_FormPredefinedField");
 
-                entity.HasOne(d => d.WizarStep)
+                entity.HasOne(d => d.WizardStep)
                     .WithMany(p => p.FormQuestion)
                     .HasForeignKey(d => d.WizardStepId)
                     .HasConstraintName("FK_FormQuestion_WizardStep");
@@ -393,6 +393,11 @@ namespace IrsMonkeyApi.Models.DB
                     .HasMaxLength(200)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Value)
+                    .HasColumnName("value")
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.FormQuestion)
                     .WithMany(p => p.FormQuestionAnswer)
                     .HasForeignKey(d => d.FormQuestionId)
@@ -427,7 +432,9 @@ namespace IrsMonkeyApi.Models.DB
             {
                 entity.Property(e => e.FormSubmittedId).HasColumnName("FormSubmittedID");
 
-                entity.Property(e => e.DateCreated).HasColumnType("datetime");
+                entity.Property(e => e.DateCreated)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.FormId).HasColumnName("FormID");
 
@@ -439,11 +446,6 @@ namespace IrsMonkeyApi.Models.DB
                     .WithMany(p => p.FormSubmitted)
                     .HasForeignKey(d => d.FormId)
                     .HasConstraintName("FK_FormSubmitted_Form");
-
-                entity.HasOne(d => d.FormSubmitedStatus)
-                    .WithMany(p => p.FormSubmitted)
-                    .HasForeignKey(d => d.FormSubmitedStatusId)
-                    .HasConstraintName("FormSubmitted_FormSubmittedStatus_FormSubmittedStatusID_fk");
 
                 entity.HasOne(d => d.Member)
                     .WithMany(p => p.FormSubmitted)
@@ -1384,9 +1386,7 @@ namespace IrsMonkeyApi.Models.DB
 
             modelBuilder.Entity<UserRole>(entity =>
             {
-                entity.Property(e => e.UserRoleId)
-                    .HasColumnName("UserRoleID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.UserRoleId).HasColumnName("UserRoleID");
 
                 entity.Property(e => e.RoleId).HasColumnName("RoleID");
 
@@ -1434,7 +1434,7 @@ namespace IrsMonkeyApi.Models.DB
                     .HasConstraintName("FK_FormResolution_Resolution");
             });
 
-            modelBuilder.Entity<WizarStep>(entity =>
+            modelBuilder.Entity<WizardStep>(entity =>
             {
                 entity.Property(e => e.WizardStepId).HasColumnName("WizardStepID");
 
@@ -1445,6 +1445,10 @@ namespace IrsMonkeyApi.Models.DB
                 entity.Property(e => e.Header).HasColumnType("text");
 
                 entity.Property(e => e.MotivationalMessage).HasColumnType("text");
+
+                entity.Property(e => e.Title)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.WizardId).HasColumnName("WizardID");
 

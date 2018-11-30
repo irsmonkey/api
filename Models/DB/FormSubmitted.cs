@@ -18,9 +18,8 @@ namespace IrsMonkeyApi.Models.DB
         public int? FormSubmitedStatusId { get; set; }
 
         public Form Form { get; set; }
-        public FormSubmittedStatus FormSubmitedStatus { get; set; }
         public Member Member { get; set; }
-        public WizarStep WizarStep { get; set; }
+        public WizardStep WizarStep { get; set; }
         public ICollection<FormSubmittedAnswer> FormSubmittedAnswer { get; set; }
     }
 }
