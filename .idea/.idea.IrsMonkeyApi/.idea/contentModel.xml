@@ -38,6 +38,7 @@
           <e p="IUploadFileDb.cs" t="Include" />
           <e p="MemberDal.cs" t="Include" />
           <e p="MemberLoginDal.cs" t="Include" />
+          <e p="OrderDal.cs" t="Include" />
           <e p="PaymentGateway.cs" t="Include" />
           <e p="ResolutionDal.cs" t="Include" />
           <e p="UploadFileDb.cs" t="Include" />
@@ -105,6 +106,7 @@
           <e p="FormSubmittedDto.cs" t="Include" />
           <e p="MemberDto.cs" t="Include" />
           <e p="MemberLoginDto.cs" t="Include" />
+          <e p="OrderDto.cs" t="Include" />
           <e p="PaymentDTO.cs" t="Include" />
           <e p="PaymentResponseDto.cs" t="Include" />
           <e p="ResolutionDto.cs" t="Include" />

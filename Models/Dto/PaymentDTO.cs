@@ -11,7 +11,6 @@ namespace IrsMonkeyApi.Models.Dto
     public class PaymentRequest
     {
         public MerchantAuthentication merchantAuthentication { get; set; }
-        public string refId { get; set; }
         public TransactionRequest transactionRequest { get; set; }
     }
 
@@ -26,16 +25,10 @@ namespace IrsMonkeyApi.Models.Dto
         public string transactionType { get; set; }
         public string amount { get; set; }
         public Payment payment { get; set; }
+        public Order order { get; set; }
         public LineItems lineItems { get; set; }
-        public Tax tax { get; set; }
-        public Duty duty { get; set; }
-        public Shipping shipping { get; set; }
-        public string poNumber { get; set; }
         public Customer customer { get; set; }
         public BillTo billTo { get; set; }
-        public ShipTo shipTo { get; set; }
-        public string customerIP { get; set; }
-        public TransactionSettings transactionSettings { get; set; }
         public UserFields userFields { get; set; }
     }
 
@@ -51,6 +44,12 @@ namespace IrsMonkeyApi.Models.Dto
         public string cardCode { get; set; }
     }
 
+    public class Order
+    {
+        public string invoiceNumber { get; set; }
+        public string description { get; set; }
+    }
+
     public class LineItem
     {
         public string itemId { get; set; }
@@ -62,7 +61,7 @@ namespace IrsMonkeyApi.Models.Dto
 
     public class LineItems
     {
-        public LineItem lineItem { get; set; }    
+        public LineItem lineItem { get; set; }      
     }
 
     public class Tax

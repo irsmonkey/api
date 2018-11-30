@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 using IrsMonkeyApi.Controllers;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
+using Order = IrsMonkeyApi.Models.DB.Order;
 
 namespace IrsMonkeyApi.Models.DAL
 {
@@ -31,11 +33,6 @@ namespace IrsMonkeyApi.Models.DAL
                 var uri = new Uri("https://apitest.authorize.net/xml/v1/request.api");
                 var parsedBody = JsonConvert.SerializeObject(paymentDetails).ToString();
                 var content = new StringContent(parsedBody, Encoding.UTF8, "application/json");
-                /*content.Headers.ContentLength = parsedBody.Length;
-                var response = await client.PostAsJsonAsync(uri, content);
-                response.EnsureSuccessStatusCode();
-                var transaction = response;
-                return true;*/
                 
                 var request = WebRequest.Create(uri) as HttpWebRequest;
                 var postBytes = Encoding.ASCII.GetBytes(parsedBody);
@@ -53,18 +50,55 @@ namespace IrsMonkeyApi.Models.DAL
                 var respObject = JsonConvert.DeserializeObject<PaymentResponseDto>(resp);
                 responseObject = respObject;
 
-                var order = _context.FormSubmitted.Where(form => form.MemberId == memberId).OrderByDescending(x => x.FormSubmittedId).FirstOrDefault();
+                var formSubmitted = _context.FormSubmitted.Where(form => form.MemberId == memberId).OrderByDescending(x => x.FormSubmittedId).FirstOrDefault();
                 switch (response.StatusCode)
                 {
                     case HttpStatusCode.OK:
                         switch (respObject.transactionResponse.responseCode)
                         {
                             case "1":
-                                order.FormSubmitedStatusId = 3;
-                                _context.SaveChanges();
-                                break;
+                                using (var transaction = _context.Database.BeginTransaction())
+                                {
+                                    try
+                                    {
+                                        //Lets save the order
+                                        var order = new Order
+                                        {
+                                            MemberId = memberId,
+                                            OrderStatusId = 1,
+                                            OrderDate = DateTime.Now,
+                                            OrderTotal = decimal.Parse(paymentDetails.createTransactionRequest
+                                                .transactionRequest.amount),
+                                            PaymentTypeId = 1
+                                        };
+                                        _context.Order.Add(order);
+                                        _context.SaveChanges();
+                                        //lets save the line items
+                                        foreach (var lineItem in paymentDetails.createTransactionRequest.transactionRequest.userFields.userField)
+                                        {
+                                            var orderItem = new OrderItem
+                                            {
+                                                OrderId = order.OrderId,
+                                                ItemId = int.Parse(lineItem.),
+                                                Price = decimal.Parse(lineItem.lineItem.unitPrice),
+                                                Quantity = int.Parse(lineItem.lineItem.quantity)
+                                            };
+                                            _context.OrderItem.Add(orderItem);
+                                            _context.SaveChanges();
+                                        }
+                                        // lets save the status of the form
+                                        formSubmitted.FormSubmitedStatusId = 3;
+                                        _context.SaveChanges();
+                                        transaction.Commit();
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        throw new Exception(e.Message);
+                                    }
+                                    break;
+                                }
                             case "3":
-                                order.FormSubmitedStatusId = 4;
+                                formSubmitted.FormSubmitedStatusId = 4;
                                 _context.SaveChanges();
                                 break;
                         }
