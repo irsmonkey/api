@@ -54,22 +54,24 @@ namespace IrsMonkeyApi.Models.DAL
                 responseObject = respObject;
 
                 var order = _context.FormSubmitted.Where(form => form.MemberId == memberId).OrderByDescending(x => x.FormSubmittedId).FirstOrDefault();
-                if (response.StatusCode == HttpStatusCode.OK)
-                {   
-                    if (respObject.transactionResponse.responseCode == "1")
-                    {
-                        order.FormSubmitedStatusId = 3;
-                        _context.SaveChanges();
-
-                    }
-                    else if(respObject.transactionResponse.responseCode == "3")
-                    {
-                        order.FormSubmitedStatusId = 4;
-                        _context.SaveChanges();
-                    }
-                }else if (response.StatusCode == HttpStatusCode.BadRequest)
+                switch (response.StatusCode)
                 {
-                    throw new Exception("There was an error");
+                    case HttpStatusCode.OK:
+                        switch (respObject.transactionResponse.responseCode)
+                        {
+                            case "1":
+                                order.FormSubmitedStatusId = 3;
+                                _context.SaveChanges();
+                                break;
+                            case "3":
+                                order.FormSubmitedStatusId = 4;
+                                _context.SaveChanges();
+                                break;
+                        }
+
+                        break;
+                    case HttpStatusCode.BadRequest:
+                        throw new Exception("There was an error");
                 }
                 return responseObject;
             }
