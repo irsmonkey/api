@@ -61,7 +61,7 @@ namespace IrsMonkeyApi.Models.Dto
 
     public class LineItems
     {
-        public LineItem lineItem { get; set; }      
+        public List<LineItem> lineItem { get; set; }      
     }
 
     public class Tax

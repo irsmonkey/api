@@ -86,6 +86,7 @@
           <e p="Resolution.cs" t="Include" />
           <e p="ResolutionLetter.cs" t="Include" />
           <e p="Role.cs" t="Include" />
+          <e p="Session.cs" t="Include" />
           <e p="SignUpType.cs" t="Include" />
           <e p="StateCode.cs" t="Include" />
           <e p="TaxpediaPage.cs" t="Include" />

@@ -56,6 +56,7 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<Resolution> Resolution { get; set; }
         public virtual DbSet<ResolutionLetter> ResolutionLetter { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Session> Session { get; set; }
         public virtual DbSet<SignUpType> SignUpType { get; set; }
         public virtual DbSet<StateCode> StateCode { get; set; }
         public virtual DbSet<TaxpediaPage> TaxpediaPage { get; set; }
@@ -1057,9 +1058,10 @@ namespace IrsMonkeyApi.Models.DB
 
             modelBuilder.Entity<OrderItem>(entity =>
             {
-                entity.Property(e => e.OrderItemId)
-                    .HasColumnName("OrderItemID")
-                    .ValueGeneratedNever();
+                entity.HasKey(e => e.OrderItemId)
+                    .ForSqlServerIsClustered(false);
+
+                entity.Property(e => e.OrderItemId).HasColumnName("OrderItemID");
 
                 entity.Property(e => e.Discount).HasColumnType("money");
 
@@ -1179,6 +1181,26 @@ namespace IrsMonkeyApi.Models.DB
                 entity.Property(e => e.RoleDescription)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Session>(entity =>
+            {
+                entity.HasKey(e => e.SessionId)
+                    .ForSqlServerIsClustered(false);
+
+                entity.ToTable("session");
+
+                entity.Property(e => e.SessionId)
+                    .HasColumnName("session_id")
+                    .HasDefaultValueSql("(newsequentialid())");
+
+                entity.Property(e => e.AppState).HasColumnName("app_state");
+
+                entity.Property(e => e.MemberId).HasColumnName("member_id");
+
+                entity.Property(e => e.SassionDate)
+                    .HasColumnName("sassion_date")
+                    .HasColumnType("datetime");
             });
 
             modelBuilder.Entity<SignUpType>(entity =>

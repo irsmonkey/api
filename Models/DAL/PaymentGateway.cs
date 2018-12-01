@@ -11,6 +11,7 @@ using IrsMonkeyApi.Controllers;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Order = IrsMonkeyApi.Models.DB.Order;
 
@@ -32,7 +33,8 @@ namespace IrsMonkeyApi.Models.DAL
             {
                 var uri = new Uri("https://apitest.authorize.net/xml/v1/request.api");
                 var parsedBody = JsonConvert.SerializeObject(paymentDetails).ToString();
-                var content = new StringContent(parsedBody, Encoding.UTF8, "application/json");
+                //var parsedBody = new System.Xml.Serialization.XmlSerializer(paymentDetails.GetType()).ToString();
+                var content = new StringContent(parsedBody, Encoding.UTF8, "t/json");
                 
                 var request = WebRequest.Create(uri) as HttpWebRequest;
                 var postBytes = Encoding.ASCII.GetBytes(parsedBody);
@@ -74,17 +76,18 @@ namespace IrsMonkeyApi.Models.DAL
                                         _context.Order.Add(order);
                                         _context.SaveChanges();
                                         //lets save the line items
-                                        foreach (var lineItem in paymentDetails.createTransactionRequest.transactionRequest.userFields.userField)
+                                        foreach (var lineItem in paymentDetails.createTransactionRequest.transactionRequest.lineItems.lineItem)
                                         {
                                             var orderItem = new OrderItem
                                             {
                                                 OrderId = order.OrderId,
-                                                ItemId = int.Parse(lineItem.),
-                                                Price = decimal.Parse(lineItem.lineItem.unitPrice),
-                                                Quantity = int.Parse(lineItem.lineItem.quantity)
+                                                ItemId = int.Parse(lineItem.itemId),
+                                                Price = decimal.Parse(lineItem.unitPrice),
+                                                Quantity = int.Parse(lineItem.quantity)
                                             };
                                             _context.OrderItem.Add(orderItem);
                                             _context.SaveChanges();
+                                            _context.Entry(orderItem).State = EntityState.Detached;
                                         }
                                         // lets save the status of the form
                                         formSubmitted.FormSubmitedStatusId = 3;
