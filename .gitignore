@@ -5,3 +5,4 @@ wwwroot/
 [Dd]ebug/
 [Bb]in/
 [Oo]bj/
+.DS_Store
