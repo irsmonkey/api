@@ -22,7 +22,8 @@ namespace IrsMonkeyApi.Controllers
             {
                 if (paymentDetails != null)
                 {
-                    var payment = _dal.ChargeCreditCard(paymentDetails, memberId);
+                    var ipAddress = HttpContext.Connection.RemoteIpAddress;
+                    var payment = _dal.ChargeCreditCard(paymentDetails, memberId, ipAddress.ToString());
                     return Ok(payment);
                 }
                 else

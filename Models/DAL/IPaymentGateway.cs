@@ -7,6 +7,6 @@ namespace IrsMonkeyApi.Models.DAL
 {
     public interface IPaymentGateway
     {
-        PaymentResponseDto ChargeCreditCard(PaymentDTO paymentDetails, Guid memberId);
+        PaymentResponseDto ChargeCreditCard(PaymentDTO paymentDetails, Guid memberId, string ipAddress);
     }
 }

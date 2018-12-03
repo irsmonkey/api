@@ -28,7 +28,7 @@ namespace IrsMonkeyApi.Models.DAL
             _context = context;
         }
         
-        public PaymentResponseDto ChargeCreditCard(PaymentDTO paymentDetails, Guid memberId)
+        public PaymentResponseDto ChargeCreditCard(PaymentDTO paymentDetails, Guid memberId, string ipAddress)
         {
             try
             {
@@ -103,6 +103,21 @@ namespace IrsMonkeyApi.Models.DAL
                                         }
                                         // lets save the status of the form
                                         formSubmitted.FormSubmitedStatusId = 3;
+                                        _context.SaveChanges();
+                                        
+                                        // lets save the order response
+                                        var orderLog = new LogOrderBilling
+                                        {
+                                            Amount = decimal.Parse(paymentDetails.createTransactionRequest.transactionRequest.amount),
+                                            DateCreated = DateTime.Now,
+                                            MessageCodes = responseObject.transactionResponse.authCode,
+                                            Messages = responseObject.transactionResponse.messages[0].ToString(),
+                                            Result = respObject.transactionResponse.avsResultCode.ToLower() == "y"? true: false,
+                                            OrderId = order.OrderId,
+                                            IpHost = ipAddress
+                                        };
+
+                                        _context.LogOrderBilling.Add(orderLog);
                                         _context.SaveChanges();
                                         transaction.Commit();
                                     }
