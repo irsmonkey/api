@@ -32,8 +32,9 @@ namespace IrsMonkeyApi.Models.DAL
             try
             {
                 var uri = new Uri("https://apitest.authorize.net/xml/v1/request.api");
+                paymentDetails.createTransactionRequest.merchantAuthentication.name = "3c9V4ct2FKu3";
+                paymentDetails.createTransactionRequest.merchantAuthentication.transactionKey = "2w78G98K7cwbRN9F";
                 var parsedBody = JsonConvert.SerializeObject(paymentDetails).ToString();
-                //var parsedBody = new System.Xml.Serialization.XmlSerializer(paymentDetails.GetType()).ToString();
                 var content = new StringContent(parsedBody, Encoding.UTF8, "t/json");
                 
                 var request = WebRequest.Create(uri) as HttpWebRequest;
