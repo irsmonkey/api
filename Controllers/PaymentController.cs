@@ -20,8 +20,16 @@ namespace IrsMonkeyApi.Controllers
         {
             try
             {
-                var payment = _dal.ChargeCreditCard(paymentDetails, memberId);
-                return Ok(payment);
+                if (paymentDetails != null)
+                {
+                    var payment = _dal.ChargeCreditCard(paymentDetails, memberId);
+                    return Ok(payment);
+                }
+                else
+                {
+                    return BadRequest("No binding");
+                }
+                
             }
             catch (Exception e)
             {

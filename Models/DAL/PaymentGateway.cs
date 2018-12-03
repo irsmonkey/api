@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
@@ -31,11 +32,22 @@ namespace IrsMonkeyApi.Models.DAL
         {
             try
             {
+                var memberInformation = new UserField
+                {
+                    name = "id",
+                    value = memberId.ToString()
+                };
+                var userFields = new UserFields {userField = new List<UserField> {memberInformation}};
+                var formSubmitted = _context.FormSubmitted.Where(form => form.MemberId == memberId).OrderByDescending(x => x.FormSubmittedId).FirstOrDefault();
                 var uri = new Uri("https://apitest.authorize.net/xml/v1/request.api");
                 paymentDetails.createTransactionRequest.merchantAuthentication.name = "3c9V4ct2FKu3";
                 paymentDetails.createTransactionRequest.merchantAuthentication.transactionKey = "2w78G98K7cwbRN9F";
+                paymentDetails.createTransactionRequest.transactionRequest.transactionType = "authCaptureTransaction";
+                paymentDetails.createTransactionRequest.transactionRequest.order.invoiceNumber = formSubmitted.FormId
+                + "-" + DateTime.Now.Millisecond;
+                paymentDetails.createTransactionRequest.transactionRequest.userFields = userFields;
                 var parsedBody = JsonConvert.SerializeObject(paymentDetails).ToString();
-                var content = new StringContent(parsedBody, Encoding.UTF8, "t/json");
+                var content = new StringContent(parsedBody, Encoding.UTF8, "application/json");
                 
                 var request = WebRequest.Create(uri) as HttpWebRequest;
                 var postBytes = Encoding.ASCII.GetBytes(parsedBody);
@@ -53,7 +65,6 @@ namespace IrsMonkeyApi.Models.DAL
                 var respObject = JsonConvert.DeserializeObject<PaymentResponseDto>(resp);
                 responseObject = respObject;
 
-                var formSubmitted = _context.FormSubmitted.Where(form => form.MemberId == memberId).OrderByDescending(x => x.FormSubmittedId).FirstOrDefault();
                 switch (response.StatusCode)
                 {
                     case HttpStatusCode.OK:
