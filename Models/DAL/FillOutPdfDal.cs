@@ -1,15 +1,15 @@
-using System;
+/*using System;
 using System.IO;
 using iTextSharp.text;
-using iTextSharp.text.pdf;
+using iTextSharp.text.pdf;*/
 
 namespace IrsMonkeyApi.Models.DAL
 {
-    public class FillOutFormDal
+    public class FillOutFormDal : IFillOutPdfDal
     {
-        private bool FillOutForm(string FormName)
+        public bool FillOutPdf(string FormName)
         {
-            try
+            /*try
             {
                 var pdfFile = new MemoryStream();
                 var reader = new PdfReader("/Users/gerardojaramillo/code/IrsMonkeyApi/IRSForms/f433a.pdf");
@@ -19,7 +19,8 @@ namespace IrsMonkeyApi.Models.DAL
             catch (Exception e)
             {
                 throw new Exception(e.ToString());
-            }
+            }*/
+            return true;
         }
     }
 }

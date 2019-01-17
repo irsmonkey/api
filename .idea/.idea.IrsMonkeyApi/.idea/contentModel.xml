@@ -21,12 +21,18 @@
         <e p="ResolutionController.cs" t="Include" />
         <e p="UploadFileController.cs" t="Include" />
       </e>
+      <e p="IRSForms" t="Include">
+        <e p="f433a.pdf" t="Include" />
+        <e p="f656.pdf" t="Include" />
+      </e>
       <e p="IrsMonkeyApi.csproj" t="IncludeRecursive" />
       <e p="Models" t="Include">
         <e p="DAL" t="Include">
+          <e p="FillOutPdfDal.cs" t="Include" />
           <e p="FormDal.cs" t="Include" />
           <e p="FormSubmittedDal.cs" t="Include" />
           <e p="GeoLocationDal.cs" t="Include" />
+          <e p="IFillOutPdfDal.cs" t="Include" />
           <e p="IFormDal.cs" t="Include" />
           <e p="IFormSubmittedAnswerDal.cs" t="Include" />
           <e p="IFormSubmittedDal.cs" t="Include" />
@@ -141,8 +147,8 @@
         </e>
       </e>
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_IrsMonkeyApi.340352400.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_IrsMonkeyApi.340352400.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
   </component>
 </project>
