@@ -6,3 +6,5 @@ wwwroot/
 [Bb]in/
 [Oo]bj/
 .DS_Store
+appsettings.Development.json
+IrsMonkeyApi.sln.DotSettings.user
