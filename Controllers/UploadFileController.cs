@@ -1,10 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
+using Microsoft.Extensions.Configuration;
 using IrsMonkeyApi.Models.DAL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.IdentityModel.Protocols;
 using Microsoft.Net.Http.Headers;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace IrsMonkeyApi.Controllers
 {
@@ -12,13 +15,13 @@ namespace IrsMonkeyApi.Controllers
     [Route("api/[controller]")]
     public class UploadFileController : Controller
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IUploadFileDb _uploadFileDb;
+        private readonly IConfiguration _configuration;
 
-        public UploadFileController(IHostingEnvironment hostingEnvironment, IUploadFileDb uploadFileDb)
+        public UploadFileController(IUploadFileDb uploadFileDb, IConfiguration configuration)
         {
-            _hostingEnvironment = hostingEnvironment;
             _uploadFileDb = uploadFileDb;
+            _configuration = configuration;
         }
 
 
@@ -27,34 +30,22 @@ namespace IrsMonkeyApi.Controllers
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(_hostingEnvironment.WebRootPath))
-                {
-                    _hostingEnvironment.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "./uploads");
-                }
+                var ms = new MemoryStream();
+                var pdfStorageConnection = CloudStorageAccount.Parse(_configuration["ApplicationSettings:pdfStorage"]);
+                var blobStorageClient = pdfStorageConnection.CreateCloudBlobClient();
+                var blobContainer = blobStorageClient.GetContainerReference("pdffiles");
 
                 var file = Request.Form.Files[0];
                 var memberId = Request.Form["memberId"].ToString();
                 var resolution = Request.Form["resolution"].ToString();
                 var document = Request.Form["document"].ToString();
-                var folderName = memberId;
-                var webRootPath = _hostingEnvironment.WebRootPath;
-                var newPath = Path.Combine(webRootPath, folderName);
-                if (!Directory.Exists(newPath))
-                {
-                    Directory.CreateDirectory(newPath);
-                }
 
-                if (file.Length <= 0) return Json("Upload Successful.");
-                var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.ToString()
-                    .Trim('"');
-                var filename2 = resolution + "-" + document + "-" + memberId + "-" + fileName;
-                var fullPath = Path.Combine(newPath, filename2);
-                using (var stream = new FileStream(fullPath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
+                if (file.Length <= 0) return Json("Upload UnSuccessful.");
+                file.CopyTo(ms);
+                var fileBytes = ms.ToArray();
 
-                var uploadFile = _uploadFileDb.UploadFile(memberId, resolution, fileName, document);
+                var uploadFile = blobContainer.GetBlockBlobReference(memberId + "/" + resolution + "/" + document);
+                uploadFile.UploadFromStreamAsync(ms);
 
                 return Ok("Upload Successful.");
             }
