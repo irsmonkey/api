@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using IrsMonkeyApi.Models.DAL;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,7 @@ namespace IrsMonkeyApi.Controllers
 
 
         [HttpPost, DisableRequestSizeLimit]
-        public IActionResult UploadFileToServer()
+        public async Task<IActionResult> UploadFileToServer()
         {
             try
             {
@@ -38,14 +39,14 @@ namespace IrsMonkeyApi.Controllers
                 var file = Request.Form.Files[0];
                 var memberId = Request.Form["memberId"].ToString();
                 var resolution = Request.Form["resolution"].ToString();
-                var document = Request.Form["document"].ToString();
+                var document = file.FileName;
 
                 if (file.Length <= 0) return Json("Upload UnSuccessful.");
                 file.CopyTo(ms);
-                var fileBytes = ms.ToArray();
+                var fileBytes = new MemoryStream(ms.ToArray());
 
                 var uploadFile = blobContainer.GetBlockBlobReference(memberId + "/" + resolution + "/" + document);
-                uploadFile.UploadFromStreamAsync(ms);
+                await uploadFile.UploadFromStreamAsync(fileBytes);
 
                 return Ok("Upload Successful.");
             }
