@@ -33,6 +33,7 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<FormType> FormType { get; set; }
         public virtual DbSet<GarnishmentType> GarnishmentType { get; set; }
         public virtual DbSet<GeoLocation> GeoLocation { get; set; }
+        public virtual DbSet<HousingStandard> HousingStandard { get; set; }
         public virtual DbSet<Irsoffice> Irsoffice { get; set; }
         public virtual DbSet<Item> Item { get; set; }
         public virtual DbSet<LienType> LienType { get; set; }
@@ -54,6 +55,7 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<PaymentType> PaymentType { get; set; }
         public virtual DbSet<QuestionType> QuestionType { get; set; }
         public virtual DbSet<Resolution> Resolution { get; set; }
+        public virtual DbSet<ResolutionControl> ResolutionControl { get; set; }
         public virtual DbSet<ResolutionLetter> ResolutionLetter { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Session> Session { get; set; }
@@ -548,6 +550,22 @@ namespace IrsMonkeyApi.Models.DB
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<HousingStandard>(entity =>
+            {
+                entity.HasKey(e => e.HousingStandardId)
+                    .ForSqlServerIsClustered(false);
+
+                entity.Property(e => e.HousingStandardId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.County).HasMaxLength(100);
+
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.State).HasMaxLength(100);
+            });
+
             modelBuilder.Entity<Irsoffice>(entity =>
             {
                 entity.ToTable("IRSOffice");
@@ -574,6 +592,8 @@ namespace IrsMonkeyApi.Models.DB
                 entity.Property(e => e.ItemNumber)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.ParentItem).HasColumnName("parent_item");
 
                 entity.Property(e => e.Price).HasColumnType("money");
 
@@ -1157,6 +1177,23 @@ namespace IrsMonkeyApi.Models.DB
                     .IsUnicode(false);
 
                 entity.Property(e => e.TaxpediaPageId).HasColumnName("TaxpediaPageID");
+            });
+
+            modelBuilder.Entity<ResolutionControl>(entity =>
+            {
+                entity.HasKey(e => e.ResolutionControlId)
+                    .ForSqlServerIsClustered(false);
+
+                entity.Property(e => e.ResolutionControlId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.FormControl).HasMaxLength(255);
+
+                entity.Property(e => e.Label).HasMaxLength(255);
+
+                entity.HasOne(d => d.FormControlTypeNavigation)
+                    .WithMany(p => p.ResolutionControl)
+                    .HasForeignKey(d => d.FormControlType)
+                    .HasConstraintName("ResolutionControl_FormControlType_FormControlTypeID_fk");
             });
 
             modelBuilder.Entity<ResolutionLetter>(entity =>
