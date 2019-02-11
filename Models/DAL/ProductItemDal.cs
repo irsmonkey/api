@@ -19,19 +19,25 @@ namespace IrsMonkeyApi.Models.DAL
             try
             {
                 var productItem = _context.Item.Where(x => x.ItemId == productId)
-                    .Select(pi => new {ItemName = pi.ItemName, ItemPrice = pi.Price}).ToList();
+                    .Select(pi => new {ItemName = pi.ItemName, ItemPrice = pi.Price, Description = pi.Description}).ToList();
                 var upSaleProducts = _context.Item.Where(x => x.ParentItem == productId)
-                    .Select(piu => new {ItemName = piu.ItemName, ItemPrice = piu.Price}).ToList();
+                    .Select(piu => new {ItemName = piu.ItemName, ItemPrice = piu.Price, Description = piu.Description}).ToList();
                 var selectedProduct = new ItemProductDto
                 {
-                    ProductName = productItem[0].ItemName,
-                    ProductPrice = Convert.ToDouble(productItem[0].ItemPrice.ToString())
+                    Name = productItem[0].ItemName,
+                    Price = Convert.ToDouble(productItem[0].ItemPrice.ToString()),
+                    Description = productItem[0].Description
                         
                 };
                 foreach (var upSaleProduct in upSaleProducts)
                 {
-                    var itemUpSale = new UpsaleProduct {Name = upSaleProduct.ItemName, Price = upSaleProduct.ItemPrice};
-                    selectedProduct.UpSales.Add(itemUpSale);
+                    var itemUpSale = new UpsaleProduct
+                    {
+                        Name = upSaleProduct.ItemName, 
+                        Price = upSaleProduct.ItemPrice, 
+                        Description = upSaleProduct.Description
+                    };
+                    selectedProduct.AdditionalProducts.Add(itemUpSale);
                 }
 
                 return selectedProduct;

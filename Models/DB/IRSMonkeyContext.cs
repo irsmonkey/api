@@ -72,6 +72,7 @@ namespace IrsMonkeyApi.Models.DB
         public virtual DbSet<Wizard> Wizard { get; set; }
         public virtual DbSet<WizardStep> WizardStep { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Alert>(entity =>
@@ -416,6 +417,8 @@ namespace IrsMonkeyApi.Models.DB
 
                 entity.Property(e => e.FormId).HasColumnName("FormID");
 
+                entity.Property(e => e.IsPdf).HasColumnName("IsPDF");
+
                 entity.Property(e => e.ResolutionId).HasColumnName("ResolutionID");
 
                 entity.HasOne(d => d.Form)
@@ -584,6 +587,8 @@ namespace IrsMonkeyApi.Models.DB
                 entity.Property(e => e.ItemId).HasColumnName("ItemID");
 
                 entity.Property(e => e.AmountTypeId).HasColumnName("AmountTypeID");
+
+                entity.Property(e => e.Description).HasColumnName("description");
 
                 entity.Property(e => e.ItemName)
                     .HasMaxLength(255)

@@ -4,8 +4,9 @@ namespace IrsMonkeyApi.Models.Dto
 {
     public class ItemProductDto
     {
-        public string ProductName { get; set; }
-        public double ProductPrice { get; set; }
-        public List<UpsaleProduct> UpSales = new List<UpsaleProduct>();
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Description { get; set; }
+        public List<UpsaleProduct> AdditionalProducts = new List<UpsaleProduct>();
     }
-}       
+}           

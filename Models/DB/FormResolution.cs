@@ -8,6 +8,7 @@ namespace IrsMonkeyApi.Models.DB
         public int FormResolutionId { get; set; }
         public int FormId { get; set; }
         public int ResolutionId { get; set; }
+        public bool? IsPdf { get; set; }
 
         public Form Form { get; set; }
         public Resolution Resolution { get; set; }
