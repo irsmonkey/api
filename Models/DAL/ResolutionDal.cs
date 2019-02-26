@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using AutoMapper;
 using IrsMonkeyApi.Models.DB;
 using IrsMonkeyApi.Models.Dto;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;
 using Remotion.Linq.Parsing.Structure.IntermediateModel;
 
@@ -132,9 +133,25 @@ namespace IrsMonkeyApi.Models.DAL
             }
         }
 
-        public Resolution GetAResolution()
+        [Route("GetUserResolution/{resolution}/{id}"), HttpGet]
+        public List<FormSubmitted> GetAResolution(Guid id, int resolution)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var memberForms = _context.FormSubmitted
+                    .Where(mf => mf.MemberId == id)
+                    .Where(rl => rl.FormId == resolution)
+                    .OrderByDescending(o => o.FormSubmittedId)
+                    .Take(1)
+                    .ToList();
+
+                return memberForms.Any() ?  memberForms : null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
-    }
+    }   
 }

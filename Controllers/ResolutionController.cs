@@ -32,5 +32,19 @@ namespace IrsMonkeyApi.Controllers
                 return BadRequest(e);
             }
         }
+
+        [Route("GetMemberResolution/{resolution}/{id}"), HttpGet]
+        public IActionResult getMemberResolutions(Guid id, int resolution)
+        {
+            try
+            {
+                var memberResolution = _dal.GetAResolution(id, resolution);
+                return Ok(memberResolution);
+            }
+            catch (Exception e)
+            {
+               return BadRequest(e);
+            }
+        }
     }
 }

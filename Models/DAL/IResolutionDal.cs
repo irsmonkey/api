@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using IrsMonkeyApi.Models.DB;
@@ -9,6 +10,6 @@ namespace IrsMonkeyApi.Models.DAL
     public interface IResolutionDal
     {
         List<ResolutionDto> GetAllResolutions();
-        Resolution GetAResolution();
+        List<FormSubmitted> GetAResolution(Guid id, int resolution);
     }
 }
